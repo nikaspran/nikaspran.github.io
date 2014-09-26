@@ -208,13 +208,71 @@ This pattern can be used to test pretty much anything to do with URL mapping,
 including any state parameters, `.rule()` blocks and such. As they say, sky's
 the limit here.
 
-### State logic
+### Resolve
 
-* `resolve` blocks
-  * In controller tests you usually mock out the dependencies
-  * So you should also test whether the dependencies actually get delivered
-  * A bit unwieldy, that's why we use utilities
-  * Can mock stuff to check various branches and such (`$stateParams`)
+People usually mock collaborators out in their controller tests. Ui-router
+makes this especially easy with the `resolve` mechanic. However, this often
+leaves a gaping hole in test coverage, where you verify whether the controller
+acts correctly given the correct dependencies BUT never check whether the correct
+dependencies are in fact given.
+
+Here's an example of how to retrieve and test the resolve blocks for a state:
+
+```
+$stateProvider
+  .state('stateWithoutViews', {
+    resolve: {
+      someModel: ['someRepository', function (someRepository) {
+        return someRepository.getModel();
+      }],
+      ...
+    },
+    ...
+  })
+  .state('stateWithViews', {
+    views: { 'main@layout': {
+      resolve: {
+        otherModel:['otherRepository', function (otherRepository) {
+          return otherRepository.getModel();
+        }]
+      },
+      ...
+    }},
+    ...
+  });
+```
+
+```
+describe('state', function () {
+  describe('stateWithoutViews', function () {
+    it('should resolve someModel', function () {
+      var onResolved = sinon.spy(); // just a spy of any sort
+      mockSomeRepository.getModel.returns($q.when('something')); // just a mock for the service
+      resolve('someModel').forStateAndView('stateWithoutViews')().then(onResolved);
+      $rootScope.$digest();
+      expect(onResolved).toHaveBeenCalledWith('something');
+    });
+  });
+  describe('stateWithViews', function () {
+    it('should resolve otherModel', function () {
+      var onResolved = sinon.spy(); // just a spy of any sort
+      mockOtherRepository.getModel.returns($q.when('other')); // just a mock for the service
+      resolve('otherModel').forStateAndView('stateWithViews', 'main@layout')().then(onResolved);
+      $rootScope.$digest();
+      expect(onResolved).toHaveBeenCalledWith('other');
+    });
+  });
+});
+```
+
+`resolve(value).forStateAndView(state, [view])` is used to retrieve the resolved value,
+which in these cases were functions that returned promises.
+
+As you can see, you can mock out any collaborators and test any scenarios as you wish.
+You can even add new `$stateParams` and check any permutations there.
+
+### `onEnter` and `onExit`
+
 * `onEnter` blocks
   * Called when you get to the state
 * `onExit` blocks
@@ -229,6 +287,27 @@ the limit here.
 
 ### Other notes
 
-* You can test state transition chains by listening in on `$stateChangeSuccess`
-* Utilise `beforeEach` a lot, keep tests small
-* Could also test whether `controller` is correct
+* You can test state transition chains by listening in on the
+  `$stateChangeSuccess` event:
+
+  ```
+  it('should visit multiple states', function(){
+    var statesVisited = [];
+    $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+      statesVisited.push(toState.name);
+    });
+    goTo('/someUrl');
+    expect(statesVisited).toEqual(['state1', 'state2']);
+  });
+  ```
+
+* Utilise `beforeEach()`. Your state configuration is usually a fairly complex tree
+  structure. Correctly using these methods lets you defer common details closer to the
+  `describe()` statement, so the preconditions are the same for any child
+  tests. This keeps the test code itself clean and succinct.
+
+* There are many more things you can test, such as whether the correct controllers are specified,
+  state data fields, `$stateParams` parsing and such. Really, everything depends on your
+  use case and what you deem most important. Pretty much everything about the ui-router
+  configuration is accessible in one way or another, which makes testing it just a case
+  of letting your imagination run wild.

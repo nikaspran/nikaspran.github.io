@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Unit Testing ui-router Configuration
-date:       2014-09-25 21:16:00
+date:       2014-09-27 20:00:00
 summary:
 categories: angular ui-router javascript
 ---
@@ -41,19 +41,19 @@ as it keeps the implementation details hidden. In theory, you could replace
 ui-router with a different routing library in the future and there would be less to change.
 We used something like this:
 
-```
+{% highlight javascript %}
 // routing.js
 angular.module('someApp.routing', ['ui.router'])
   .config(function($stateProvider, ...){
     ...
   });
-```
+{% endhighlight %}
 
-```
+{% highlight javascript %}
 // app.js
 angular.module('someApp', ['someApp.routing', ...])
   ...
-```
+{% endhighlight %}
 
 ### Helpful utilities
 
@@ -66,23 +66,23 @@ scattered about in the examples below.
   Since ui-router will by default try to retrieve your views, we use
   this tiny function to mock a template for a specific route.
 
-  ```
+  {% highlight javascript %}
   function mockTemplate(templateRoute, tmpl) {
     $templateCache.put(templateRoute, tmpl || templateRoute);
   }
-  ```
+  {% endhighlight %}
 
 * `goTo(url)`
 
   Literally takes you to the specified URL and then does a $digest.
   Simply to make tests look more readable.
 
-  ```
+  {% highlight javascript %}
   function goTo(url) {
     $location.url(url);
     $rootScope.$digest();
   }
-  ```
+  {% endhighlight %}
 
 * `goFrom(url).toState(state, [params])`
 
@@ -91,7 +91,7 @@ scattered about in the examples below.
   so that the ui-router does not immediately go somewhere different on
   `$scope.$digest()`.
 
-  ```
+  {% highlight javascript %}
   function goFrom(url) {
     return {toState: function (state, params) {
       $location.replace().url(url); //Don't actually trigger a reload
@@ -99,7 +99,7 @@ scattered about in the examples below.
       $rootScope.$digest();
     }};
   }
-  ```
+  {% endhighlight %}
 
 * `resolve(value).forStateAndView(state, [view])`
 
@@ -108,14 +108,14 @@ scattered about in the examples below.
   the resolve as if you were ui-router. It uses `$injector` to get you the
   fully wired up version of the resolve result.
 
-  ```
+  {% highlight javascript %}
   function resolve(value) {
     return {forStateAndView: function (state, view) {
       var viewDefinition = view ? $state.get(state).views[view] : $state.get(state);
       return $injector.invoke(viewDefinition.resolve[value]);
     }};
   }
-  ```
+  {% endhighlight %}
 
 ### URL routing
 
@@ -128,7 +128,7 @@ you expect them to be.
 Since actions speak louder than words, here's an example.
 Say you have the following configuration:
 
-```
+{% highlight javascript %}
 ...
 .config(function ($urlRouterProvider, $stateProvider) {
   $urlRouterProvider
@@ -147,11 +147,11 @@ Say you have the following configuration:
       templateUrl: 'views/404.html'
     });
 });
-```
+{% endhighlight %}
 
 The test structure for URL routing would then look something like this:
 
-```
+{% highlight javascript %}
 describe('path', function () {
   describe('when empty', function () {
     beforeEach(mockTemplate.bind(null, 'views/home.html'));
@@ -187,7 +187,7 @@ describe('path', function () {
     });
   });
 });
-```
+{% endhighlight %}
 
 We use `$state.current.name` to check whether the transition happened
 as we had expected it to. Since we have access to the current state, we could
@@ -216,7 +216,7 @@ dependencies are in fact given.
 
 Here's an example of how to retrieve and test the resolve blocks for a state:
 
-```
+{% highlight javascript %}
 $stateProvider
   .state('stateWithoutViews', {
     resolve: {
@@ -238,9 +238,9 @@ $stateProvider
     }},
     ...
   });
-```
+{% endhighlight %}
 
-```
+{% highlight javascript %}
 describe('state', function () {
   describe('stateWithoutViews', function () {
     it('should resolve someModel', function () {
@@ -261,7 +261,7 @@ describe('state', function () {
     });
   });
 });
-```
+{% endhighlight %}
 
 `resolve(value).forStateAndView(state, [view])` is used to retrieve the resolved value,
 which in these cases were functions that returned promises.
@@ -274,7 +274,7 @@ You can even add new `$stateParams` and check any permutations there.
 These are pretty much straightforward - just force a transition to the state you
 wish to test (and then out of it, for `onExit`). So, something like this:
 
-```
+{% highlight javascript %}
 describe('onEnter', function () {
   it('should open a modal', function () {
     goFrom('/modalState').toState('modal');
@@ -291,7 +291,7 @@ describe('onExit', function () {
     expect(modal.close).toHaveBeenCalled();
   });
 });
-```
+{% endhighlight %}
 
 ### `$stateChange*` events
 
@@ -314,7 +314,7 @@ one if you create a simple utility to hide the details of the event itself.
 * You can test state transition chains by listening in on the
   `$stateChangeSuccess` event:
 
-  ```
+  {% highlight javascript %}
   it('should visit multiple states', function(){
     var statesVisited = [];
     $rootScope.$on('$stateChangeSuccess', function (event, toState) {
@@ -323,7 +323,7 @@ one if you create a simple utility to hide the details of the event itself.
     goTo('/someUrl');
     expect(statesVisited).toEqual(['state1', 'state2']);
   });
-  ```
+  {% endhighlight %}
 
 * Utilise `beforeEach()`. Your state configuration is usually a fairly complex tree
   structure. Correctly using these methods lets you defer common details closer to the

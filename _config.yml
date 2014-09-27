@@ -7,7 +7,7 @@ github_username: nikaspran
 twitter_username: nikaspran
 baseurl: ""
 url: "http://nikas.praninskas.com"
-google_analytics:
+google_analytics: "UA-55213759-1"
 animated: false
 
 # Build settings

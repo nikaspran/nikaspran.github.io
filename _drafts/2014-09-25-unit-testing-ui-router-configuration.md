@@ -2,7 +2,7 @@
 layout:     post
 title:      Unit Testing ui-router Configuration
 date:       2014-09-25 21:16:00
-summary:    "How to unit test your ui-router configuration"
+summary:
 categories: angular ui-router javascript
 ---
 ### Why?
@@ -116,8 +116,6 @@ scattered about in the examples below.
     }};
   }
   ```
-
-* `emitStateChangeEvent(type, toState, fromState)` ?
 
 ### URL routing
 
@@ -273,17 +271,43 @@ You can even add new `$stateParams` and check any permutations there.
 
 ### `onEnter` and `onExit`
 
-* `onEnter` blocks
-  * Called when you get to the state
-* `onExit` blocks
-  * Requires setup - go to the state you're testing, then to another state
+These are pretty much straightforward - just force a transition to the state you
+wish to test (and then out of it, for `onExit`). So, something like this:
+
+```
+describe('onEnter', function () {
+  it('should open a modal', function () {
+    goFrom('/modalState').toState('modal');
+    expect(mockModal.open).toHaveBeenCalled();
+  });
+});
+
+describe('onExit', function () {
+  it('should close the modal', function () {
+    var modal = {close: sinon.spy()};
+    mockModal.open.returns(modal);
+    goFrom('/modalState').toState('modal');
+    goFrom('/otherState').toState('other');
+    expect(modal.close).toHaveBeenCalled();
+  });
+});
+```
 
 ### `$stateChange*` events
 
-* A few different ways:
-  * Fake a state change
-  * `reject()` your resolve blocks
-  * TODO: look into more ways to do this
+Admittedly, these are a bit tricky to test. On the one hand, you could simply
+`$emit` the desired event, but then you're bypassing ui-router completely, so
+there may be situations where that hides a bug somewhere.
+
+On the other hand, you could just do a state transition (successful or failed)
+and then simply verify any side effects. The problem here is that you're being
+a bit too indirect and the state transition itself might interfere with the
+properties you want to test. So, for example, to test a `$stateChangeError`
+handler you might mock one of your state resolves to throw an error.
+
+The exact situation depends on your use case, but either way, there are some
+drawbacks to either approach. At this point, I'm leaning towards the first
+one if you create a simple utility to hide the details of the event itself.
 
 ### Other notes
 

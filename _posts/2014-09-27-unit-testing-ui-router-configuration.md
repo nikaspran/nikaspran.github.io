@@ -16,13 +16,16 @@ End-to-end testing can (and should) be used to verify major functionality.
 It is, however, rather more difficult to write and maintain. In contrast,
 unit tests let you test the details at very impressive speeds.
 
-Unit testing the `.config()` blocks in your Angular app seemed a daunting
+Unit testing the `.config()` blocks in your Angular app seems a daunting
 task at first. You can't easily access the providers (tests run after
 the config phase is over) and there is usually a lot of stuff that gets
 bootstrapped along even for the tiniest of tests.
 
 There is however a rather painless way of testing at least the routing of your
-app, which is usually where a lot of the important logic happens.
+app, which is usually where a lot of the important logic happens. In this post,
+we'll be looking into how you might do unit-testing if you're using
+[ui-router](https://github.com/angular-ui/ui-router). Your experience may vary
+with other libraries.
 
 ### Separate routing from the rest of your configuration
 

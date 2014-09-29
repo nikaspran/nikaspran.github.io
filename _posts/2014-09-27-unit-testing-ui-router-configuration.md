@@ -14,7 +14,7 @@ no less threatening than a bug in some controller or service.
 
 End-to-end testing can (and should) be used to verify major functionality.
 It is, however, rather more difficult to write and maintain. In contrast,
-unit tests let you test the details at very impressive speeds.
+unit tests let you test the details at impressive speeds.
 
 Unit testing the `.config()` blocks in your Angular app seems a daunting
 task at first. You can't easily access the providers (tests run after
@@ -32,7 +32,7 @@ with other libraries.
 The key concept in unit testing anything is making it independently testable and
 ui-router configuration is no exception.
 
-In order to do this, you should extract anything related to ui-router into a
+To do this, you should extract anything related to ui-router into a
 separate module, then require that in your main app module. It's a simple
 refactoring that gave us immediate benefits, even
 without the tests - in my experience, ui-router can drown out everything else
@@ -206,7 +206,7 @@ If this is unwanted, you could mock out `$templateCache` to always return
 whatever the argument was. I could see that being useful if your views have
 a ton of views that make it cumbersome to always mock them out explicitly.
 
-This pattern can be used to test pretty much anything to do with URL mapping,
+You can use this pattern to test pretty much anything to do with URL mapping,
 including any state parameters, `.rule()` blocks and such. As they say, sky's
 the limit here.
 

@@ -8,13 +8,13 @@ tags:       angular, ui-router, javascript
 ---
 ### Why?
 
-In Angular, configuration is code, so one could argue there is no real
+Angular app configuration is code, so one could argue there is no real
 reason not to test it. If you misconfigure your application, it's
 no less threatening than a bug in some controller or service.
 
 End-to-end testing can (and should) be used to verify major functionality.
 It is, however, rather more difficult to write and maintain. In contrast,
-unit tests let you test the details at impressive speeds.
+unit tests let you check the details at impressive speeds.
 
 Unit testing the `.config()` blocks in your Angular app seems a daunting
 task at first. You can't easily access the providers (tests run after
@@ -32,9 +32,9 @@ with other libraries.
 The key concept in unit testing anything is making it independently testable and
 ui-router configuration is no exception.
 
-To do this, you should extract anything related to ui-router into a
+To do this, you should first extract anything related to ui-router into a
 separate module, then require that in your main app module. It's a simple
-refactoring that gave us immediate benefits, even
+refactoring that gives immediate benefits even
 without the tests - in my experience, ui-router can drown out everything else
 in the configuration phase. This makes it easy to see at a glance the high-level
 logic of your app, makes the rest of your modules easier to test (you don't have
@@ -43,7 +43,7 @@ to bootstrap the entire routing if you don't want to).
 I feel including ui-router as a dependency in the routing submodule is also wise
 as it keeps the implementation details hidden. In theory, you could replace
 ui-router with a different routing library in the future and there would be less to change.
-We used something like this:
+It would look something like this:
 
 {% highlight javascript %}
 // routing.js
@@ -61,9 +61,8 @@ angular.module('someApp', ['someApp.routing', ...])
 
 ### Helpful utilities
 
-Here's handful of key utilities that we've been using to streamline
-the unit testing of our ui-router configuration. You'll find these
-scattered about in the examples below.
+Here's handful of key utilities that we'll be using to streamline our unit tests.
+You'll find these scattered about in the examples below.
 
 * `mockTemplate(url, [template])`
 
@@ -339,3 +338,10 @@ one if you create a simple utility to hide the details of the event itself.
   use case and what you deem most important. Pretty much everything about the ui-router
   configuration is accessible in one way or another, which makes testing it just a case
   of letting your imagination run wild.
+
+### Summary
+
+You can and should unit test your routing configuration if you're using ui-router.
+I've personally found a couple of hidden bugs in my apps while researching how
+to best approach this. The tests not only verify functionality is correct, but
+also serve as a high-level overview of your application routing.

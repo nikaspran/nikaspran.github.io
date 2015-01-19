@@ -34,7 +34,4 @@ if (supportsTemplate && supportsCustomElements && supportsHtmlImports && support
 
 ### Offline version
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/43675229" width="100%" height="500"
-				frameborder="0" marginwidth="0"
-				marginheight="0" scrolling="no">
-</iframe>
+<script async class="speakerdeck-embed" data-id="a7466f5082520132d5404ee58d225789" data-ratio="1.6" src="//speakerdeck.com/assets/embed.js"></script>

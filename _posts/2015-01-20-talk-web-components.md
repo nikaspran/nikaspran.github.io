@@ -9,7 +9,7 @@ tags:       web components, javascript, custom elements, html imports, shadow do
 
 ### Live version
 
-Currently only viewable in Chrome, press F for [fullscreen](/talk-web-components/)
+Currently only viewable in Chrome. `F` for [fullscreen](/talk-web-components/), `Space` for next slide.
 
 <style>
 .hidden {display: none}

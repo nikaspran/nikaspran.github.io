@@ -4,7 +4,7 @@ title:      Unit Testing ui-router Configuration
 date:       2014-09-27 20:00:00
 summary:
 categories: angular
-tags:       angular, ui-router, javascript
+tags:       [angular, ui-router, javascript]
 ---
 ### Why?
 

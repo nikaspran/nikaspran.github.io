@@ -4,9 +4,8 @@ title:      "Talk: Web Components"
 date:       2015-01-20 18:00:00
 summary:		"Web Components: The (near) Future of Web Development"
 categories: web
-tags:       web components, javascript, custom elements, html imports, shadow dom, templates, talk
+tags:       [web components, javascript, custom elements, html imports, shadow dom, templates, talk]
 ---
-
 ### Live version
 
 Currently only viewable in Chrome. `F` for [fullscreen](/talk-web-components/), `Space` for next slide.

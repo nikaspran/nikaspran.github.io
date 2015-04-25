@@ -1,6 +1,10 @@
 ---
 layout: page
-title: About me
+title: Nikas Praninskas
 permalink: /about/
 ---
-TODO
+<img src="/images/profile.jpg" style="height: 200px; width: auto; float: left">
+
+Frontend Developer @ Wix.com
+
+[LinkedIn](https://www.linkedin.com/pub/nikas-praninskas/50/543/48b)

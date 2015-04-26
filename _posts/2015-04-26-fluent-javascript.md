@@ -21,7 +21,7 @@ $scope.model = _.extend({}, modelMap); // reset $scope.model
 
 // good
 function partialUpdateReview(review, publishedAt) {
-  // TODO: POST until API supports PUT
+  // TODO: use POST until API supports PUT
   return $http.post('/api/reviews/published', {publishedAt: publishedAt});
 }
 ```

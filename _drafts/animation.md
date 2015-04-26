@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Backwards compatible animation
-date:       2014-mm-dd hh:00:00
+date:       2015-04-26
 summary:
 categories: web
 tags:       animation, css, svg

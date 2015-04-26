@@ -11,8 +11,8 @@ google_analytics: "UA-55213759-1"
 animated: false
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
-paginate: 3
+paginate: 5
 sass:
   compressed: true

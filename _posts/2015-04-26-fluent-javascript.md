@@ -7,7 +7,7 @@ categories: javascript
 tags:       [fluent, javascript]
 ---
 
-It is not enough for code to simply work. Good code is meant to be easy to understand, and readable code is much easier to understand.
+It is not enough for code to simply work. Good code is meant to be easy to understand, and it is much easier to understand code that is readable.
 
 ## Comments Considered Harmful
 

@@ -6,7 +6,13 @@ summary:		"Web Components: The (near) Future of Web Development"
 categories: web
 tags:       [web components, javascript, custom elements, html imports, shadow dom, templates, talk]
 ---
-### Live version
+### Video (partial)
+
+Given at [VilniusJS #14](http://vilniusjs.lt/2015/01/20/meetup14.html)
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/-DYY-bOp2aM" frameborder="0" allowfullscreen></iframe>
+
+### Slides (live)
 
 Currently only viewable in Chrome. `F` for [fullscreen](/talk-web-components/), `Space` for next slide.
 
@@ -31,6 +37,6 @@ if (supportsTemplate && supportsCustomElements && supportsHtmlImports && support
 
 <a href="http://github.com/nikaspran/talk-web-components" target="_blank">Source</a>
 
-### Offline version
+### Slides (offline)
 
 <script async class="speakerdeck-embed" data-id="a7466f5082520132d5404ee58d225789" data-ratio="1.6" src="//speakerdeck.com/assets/embed.js"></script>

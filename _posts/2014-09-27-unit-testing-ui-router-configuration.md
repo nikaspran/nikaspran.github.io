@@ -45,19 +45,19 @@ as it keeps the implementation details hidden. In theory, you could replace
 ui-router with a different routing library in the future and there would be less to change.
 It would look something like this:
 
-{% highlight javascript %}
+```js
 // routing.js
 angular.module('someApp.routing', ['ui.router'])
   .config(function($stateProvider, ...){
     ...
   });
-{% endhighlight %}
+```
 
-{% highlight javascript %}
+```js
 // app.js
 angular.module('someApp', ['someApp.routing', ...])
   ...
-{% endhighlight %}
+```
 
 ### Helpful utilities
 
@@ -69,23 +69,23 @@ You'll find these scattered about in the examples below.
   Since ui-router will by default try to retrieve your views, we use
   this tiny function to mock a template for a specific route.
 
-  {% highlight javascript %}
-  function mockTemplate(templateRoute, tmpl) {
-    $templateCache.put(templateRoute, tmpl || templateRoute);
-  }
-  {% endhighlight %}
+  ```js
+function mockTemplate(templateRoute, tmpl) {
+  $templateCache.put(templateRoute, tmpl || templateRoute);
+}
+  ```
 
 * `goTo(url)`
 
   Literally takes you to the specified URL and then does a $digest.
   Simply to make tests look more readable.
 
-  {% highlight javascript %}
-  function goTo(url) {
-    $location.url(url);
-    $rootScope.$digest();
-  }
-  {% endhighlight %}
+  ```js
+function goTo(url) {
+  $location.url(url);
+  $rootScope.$digest();
+}
+  ```
 
 * `goFrom(url).toState(state, [params])`
 
@@ -94,15 +94,15 @@ You'll find these scattered about in the examples below.
   so that the ui-router does not immediately go somewhere different on
   `$scope.$digest()`.
 
-  {% highlight javascript %}
-  function goFrom(url) {
-    return {toState: function (state, params) {
-      $location.replace().url(url); //Don't actually trigger a reload
-      $state.go(state, params);
-      $rootScope.$digest();
-    }};
-  }
-  {% endhighlight %}
+  ```js
+function goFrom(url) {
+  return {toState: function (state, params) {
+    $location.replace().url(url); //Don't actually trigger a reload
+    $state.go(state, params);
+    $rootScope.$digest();
+  }};
+}
+  ```
 
 * `resolve(value).forStateAndView(state, [view])`
 
@@ -111,14 +111,14 @@ You'll find these scattered about in the examples below.
   the resolve as if you were ui-router. It uses `$injector` to get you the
   fully wired up version of the resolve result.
 
-  {% highlight javascript %}
-  function resolve(value) {
-    return {forStateAndView: function (state, view) {
-      var viewDefinition = view ? $state.get(state).views[view] : $state.get(state);
-      return $injector.invoke(viewDefinition.resolve[value]);
-    }};
-  }
-  {% endhighlight %}
+  ```js
+function resolve(value) {
+  return {forStateAndView: function (state, view) {
+    var viewDefinition = view ? $state.get(state).views[view] : $state.get(state);
+    return $injector.invoke(viewDefinition.resolve[value]);
+  }};
+}
+  ```
 
 ### URL routing
 
@@ -131,7 +131,7 @@ you expect them to be.
 Since actions speak louder than words, here's an example.
 Say you have the following configuration:
 
-{% highlight javascript %}
+```js
 ...
 .config(function ($urlRouterProvider, $stateProvider) {
   $urlRouterProvider
@@ -150,11 +150,11 @@ Say you have the following configuration:
       templateUrl: 'views/404.html'
     });
 });
-{% endhighlight %}
+```
 
 The test structure for URL routing would then look something like this:
 
-{% highlight javascript %}
+```js
 describe('path', function () {
   describe('when empty', function () {
     beforeEach(mockTemplate.bind(null, 'views/home.html'));
@@ -190,7 +190,7 @@ describe('path', function () {
     });
   });
 });
-{% endhighlight %}
+```
 
 We use `$state.current.name` to check whether the transition happened
 as we had expected it to. Since we have access to the current state, we could
@@ -198,7 +198,7 @@ do a more elaborate expectation here if necessary.
 
 The tests themselves are arguably clear, concise and easy to read. I use
 the `beforeEach` statements liberally because they make it easy to add new
-tiny micro-tests for any other behaviour I want to verify.
+tiny micro-tests for any other behavior I want to verify.
 
 As a bonus, we implicitly check whether the correct view is being loaded.
 If this is unwanted, you could mock out `$templateCache` to always return
@@ -219,7 +219,7 @@ dependencies are in fact given.
 
 Here's an example of how to retrieve and test the resolve blocks for a state:
 
-{% highlight javascript %}
+```js
 $stateProvider
   .state('stateWithoutViews', {
     resolve: {
@@ -241,9 +241,9 @@ $stateProvider
     }},
     ...
   });
-{% endhighlight %}
+```
 
-{% highlight javascript %}
+```js
 describe('state', function () {
   describe('stateWithoutViews', function () {
     it('should resolve someModel', function () {
@@ -264,7 +264,7 @@ describe('state', function () {
     });
   });
 });
-{% endhighlight %}
+```
 
 `resolve(value).forStateAndView(state, [view])` is used to retrieve the resolved value,
 which in these cases were functions that returned promises.
@@ -277,7 +277,7 @@ You can even add new `$stateParams` and check any permutations there.
 These are pretty much straightforward - just force a transition to the state you
 wish to test (and then out of it, for `onExit`). So, something like this:
 
-{% highlight javascript %}
+```js
 describe('onEnter', function () {
   it('should open a modal', function () {
     goFrom('/modalState').toState('modal');
@@ -294,7 +294,7 @@ describe('onExit', function () {
     expect(modal.close).toHaveBeenCalled();
   });
 });
-{% endhighlight %}
+```
 
 ### `$stateChange*` events
 
@@ -317,18 +317,18 @@ one if you create a simple utility to hide the details of the event itself.
 * You can test state transition chains by listening in on the
   `$stateChangeSuccess` event:
 
-  {% highlight javascript %}
-  it('should visit multiple states', function(){
-    var statesVisited = [];
-    $rootScope.$on('$stateChangeSuccess', function (event, toState) {
-      statesVisited.push(toState.name);
-    });
-    goTo('/someUrl');
-    expect(statesVisited).toEqual(['state1', 'state2']);
+  ```js
+it('should visit multiple states', function(){
+  var statesVisited = [];
+  $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+    statesVisited.push(toState.name);
   });
-  {% endhighlight %}
+  goTo('/someUrl');
+  expect(statesVisited).toEqual(['state1', 'state2']);
+});
+  ```
 
-* Utilise `beforeEach()`. Your state configuration is usually a fairly complex tree
+* Utilize `beforeEach()`. Your state configuration is usually a fairly complex tree
   structure. Correctly using these methods lets you defer common details closer to the
   `describe()` statement, so the preconditions are the same for any child
   tests. This keeps the test code itself clean and succinct.

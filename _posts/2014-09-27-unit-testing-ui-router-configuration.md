@@ -5,6 +5,8 @@ date:       2014-09-27 20:00:00
 summary:
 categories: angular
 tags:       [angular, ui-router, javascript]
+redirect_from:
+  - /test-ui-router/
 ---
 ### Why?
 

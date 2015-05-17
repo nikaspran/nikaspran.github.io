@@ -1,10 +1,11 @@
 ---
-layout:     post
+layout:     talk
 title:      "Talk: angular/router"
 date:       2015-05-17
 summary:		"angular/router: the New Angular Router"
 categories: angular
 tags:       [angular, javascript, angular2, router, talk]
+minutes:    36
 ---
 ### Video
 

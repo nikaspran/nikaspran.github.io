@@ -25,3 +25,68 @@ form {
     font-family: "Open Sans", sans-serif;
   }
 }
+
+.cv {
+  .timeline {
+    padding: 0;
+
+    li {
+      border-left: 3px solid;
+      border-bottom: 1px solid #f3f3f3;
+      position: relative;
+      padding-left: 130px;
+      list-style: none;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+
+      .start {
+        position: absolute;
+        left: 10px;
+        bottom: 0;
+      }
+
+      @media screen and (min-width: 48em) {
+        &:hover::before {
+          content: attr(data-duration);
+          transform: rotate(-90deg);
+  	      transform-origin: left top 0;
+          position: absolute;
+          left: -2.5rem;
+          bottom: 0;
+        }
+      }
+
+      h4 {
+        margin: 0;
+        margin-bottom: 4px;
+      }
+      p {
+        margin-bottom: 4px;
+      }
+    }
+
+    $height-per-month: 15px;
+    .wix {
+      &:hover::before {
+        color: #FFC233;
+      }
+      border-left-color: #FFC233;
+      height: 18 * $height-per-month;
+    }
+    .barclays {
+      &:hover::before {
+        color: #33ADEF;
+      }
+      border-left-color: #33ADEF;
+      height: 5 * $height-per-month + 70px;
+    }
+    .insoft {
+      &:hover::before {
+        color: #CC0001;
+      }
+      border-left-color: #CC0001;
+      height: 21 * $height-per-month;
+    }
+  }
+}

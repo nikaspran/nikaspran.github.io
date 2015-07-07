@@ -26,9 +26,34 @@ form {
   }
 }
 
-.cv {
+.about {
+  .post-header > :first-child,
+  .post-content > :first-child {
+    margin-top: 0;
+  }
+
+  .social {
+    list-style: none;
+    padding: 0;
+    h4 {
+      display: inline;
+    }
+    a {
+      margin-left: 1em;
+    }
+  }
+
   .timeline {
     padding: 0;
+    position: relative;
+
+    &::before {
+      content: '▲';
+      position: absolute;
+      left: -7px;
+      top: -7px;
+      color: #FFC233;
+    }
 
     li {
       border-left: 3px solid;
@@ -87,6 +112,47 @@ form {
       }
       border-left-color: #CC0001;
       height: 21 * $height-per-month;
+    }
+  }
+
+  @media print {
+    .site-nav,
+    .footer {
+      display: none;
+    }
+    .post {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .site-wrap:after {
+      height: 0;
+    }
+    h3 {
+      margin: 0.5em 0;
+    }
+    a {
+      color: #333333;
+    }
+    .timeline {
+      &::before {
+        display: none;
+      }
+
+      li {
+        flex-direction: column;
+        border-left: none !important;
+        height: auto !important;
+
+        .start {
+          top: 0;
+          display: block;
+
+          &::after {
+            content: ' - ' attr(data-end);
+            display: block;
+          }
+        }
+      }
     }
   }
 }

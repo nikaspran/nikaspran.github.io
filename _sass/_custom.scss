@@ -97,21 +97,21 @@ form {
         color: #FFC233;
       }
       border-left-color: #FFC233;
-      height: 18 * $height-per-month;
+      min-height: 18 * $height-per-month;
     }
     .barclays {
       &:hover::before {
         color: #33ADEF;
       }
       border-left-color: #33ADEF;
-      height: 5 * $height-per-month + 70px;
+      min-height: 5 * $height-per-month + 70px;
     }
     .insoft {
       &:hover::before {
         color: #CC0001;
       }
       border-left-color: #CC0001;
-      height: 21 * $height-per-month;
+      min-height: 21 * $height-per-month;
     }
   }
 
@@ -141,6 +141,7 @@ form {
       li {
         flex-direction: column;
         border-left: none !important;
+        min-height: 0 !important;
         height: auto !important;
 
         .start {

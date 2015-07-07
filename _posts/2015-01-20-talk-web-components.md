@@ -3,6 +3,7 @@ layout:     talk
 title:      "Talk: Web Components"
 date:       2015-01-20 18:00:00
 summary:		"Web Components: The (near) Future of Web Development"
+location:		VilniusJS \#14
 categories: web
 tags:       [web components, javascript, custom elements, html imports, shadow dom, templates, talk]
 minutes:    22

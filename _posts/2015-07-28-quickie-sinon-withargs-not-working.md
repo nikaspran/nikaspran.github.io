@@ -54,3 +54,6 @@ typeDetector('definitely a string') // returns 'I am a number' :(
 
 Here's a [Plunker](http://plnkr.co/edit/ySNFvV6mEaeYdOPiH5Gq?p=preview) replicating it.
 Open the console to see the behavior.
+
+Seems like it [won't be fixed](https://github.com/cjohansen/Sinon.JS/issues/739),
+so just something to keep in mind.

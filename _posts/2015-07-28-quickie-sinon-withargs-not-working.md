@@ -5,6 +5,7 @@ date:       2015-07-28
 summary:		"Sinon.JS is peculiar about creating stubs using `withArgs` inline"
 categories: javascript
 tags:       [sinonjs, javascript, testing]
+comments:   true
 ---
 
 From time to time we run into a bit of an edge case when using [Sinon.JS](http://sinonjs.org/)
@@ -56,4 +57,4 @@ Here's a [Plunker](http://plnkr.co/edit/ySNFvV6mEaeYdOPiH5Gq?p=preview) replicat
 Open the console to see the behavior.
 
 Seems like it [won't be fixed](https://github.com/cjohansen/Sinon.JS/issues/739),
-so just something to keep in mind.
+so just something to keep in mind. 

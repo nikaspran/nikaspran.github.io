@@ -4,6 +4,7 @@ title:      Fluent JavaScript
 date:       2015-04-26
 summary:    Fluent interfaces and their implementation in JavaScript
 categories: javascript
+comments:   true
 tags:       [fluent, javascript]
 ---
 

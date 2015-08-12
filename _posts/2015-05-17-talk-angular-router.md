@@ -6,6 +6,7 @@ summary:		"angular/router: the New Angular Router"
 location:		ng-conf Israel 2015
 categories: angular
 tags:       [angular, javascript, angular2, router, talk]
+comments:   true
 minutes:    36
 ---
 ### Video

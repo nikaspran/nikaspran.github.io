@@ -7,6 +7,7 @@ location:		VilniusJS \#14
 categories: web
 tags:       [web components, javascript, custom elements, html imports, shadow dom, templates, talk]
 minutes:    22
+comments:   true
 ---
 ### Video (partial)
 

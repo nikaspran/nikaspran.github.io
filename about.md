@@ -33,8 +33,8 @@ class: about
 ### Work
 
 <ul class="timeline">
-	<li class="wix ongoing" data-duration="Ongoing">
-		<span class="start" data-end="Now">2014-02</span>
+	<li data-duration="1 year & 9 months" class="wix">
+		<span class="start" data-end="2015-10">2014-02</span>
 		<h4>Wix - Front End Developer</h4>
 		<p>Angular, JavaScript, Gulp, Grunt, HTML, CSS, SASS</p>
 		<p>Part of the <a href="http://www.wix.com/app-market/">App Market</a>

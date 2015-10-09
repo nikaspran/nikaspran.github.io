@@ -13,7 +13,7 @@ minutes:    36
 
 Given at [ng-conf Israel 2015](http://ng-conf.co.il/)
 
-Coming soon.
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/4mk_fjU7Ylo" frameborder="0" allowfullscreen></iframe>
 
 ### Slides (live)
 

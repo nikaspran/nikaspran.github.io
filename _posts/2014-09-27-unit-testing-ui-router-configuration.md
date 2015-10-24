@@ -348,3 +348,5 @@ You can and should unit test your routing configuration if you're using ui-route
 I've personally found a couple of hidden bugs in my apps while researching how
 to best approach this. The tests not only verify functionality is correct, but
 also serve as a high-level overview of your application routing.
+
+By suggestion from [Fernando Araujo](http://nikas.praninskas.com/angular/2014/09/27/unit-testing-ui-router-configuration/#comment-2273936546) I've created an [example repository](https://github.com/nikaspran/example-ui-router-testing) that showcases everything in this post.

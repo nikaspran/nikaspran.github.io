@@ -33,6 +33,12 @@ class: about
 ### Work
 
 <ul class="timeline">
+	<li data-duration="Ongoing" class="wrap ongoing">
+		<span class="start" data-end="Now">2015-10</span>
+		<h4>Wrap Media - Front End Developer</h4>
+		<p>Angular, CoffeeScript, Gulp, HTML, CSS, Less</p>
+		<p></p>
+	</li>
 	<li data-duration="1 year & 9 months" class="wix">
 		<span class="start" data-end="2015-10">2014-02</span>
 		<h4>Wix - Front End Developer</h4>

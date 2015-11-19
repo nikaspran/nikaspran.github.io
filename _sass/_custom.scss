@@ -52,7 +52,7 @@ form {
       position: absolute;
       left: -7px;
       top: -7px;
-      color: #FFC233;
+      color: #98C33D;
     }
 
     li {
@@ -92,12 +92,19 @@ form {
     }
 
     $height-per-month: 15px;
+    .wrap {
+      &:hover::before {
+        color: #98C33D;
+      }
+      border-left-color: #98C33D;
+      min-height: 9 * $height-per-month;
+    }
     .wix {
       &:hover::before {
         color: #FFC233;
       }
       border-left-color: #FFC233;
-      min-height: 18 * $height-per-month;
+      min-height: 21 * $height-per-month;
     }
     .barclays {
       &:hover::before {

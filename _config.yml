@@ -13,7 +13,7 @@ animated: false
 # Build settings
 markdown: redcarpet
 permalink: pretty
-paginate: 5
+paginate: 10
 sass:
   compressed: true
 

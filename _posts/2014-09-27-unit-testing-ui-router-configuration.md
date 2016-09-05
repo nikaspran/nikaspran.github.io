@@ -73,9 +73,9 @@ You'll find these scattered about in the examples below.
   this tiny function to mock a template for a specific route.
 
   ```js
-function mockTemplate(templateRoute, tmpl) {
-  $templateCache.put(templateRoute, tmpl || templateRoute);
-}
+  function mockTemplate(templateRoute, tmpl) {
+    $templateCache.put(templateRoute, tmpl || templateRoute);
+  }
   ```
 
 * `goTo(url)`
@@ -84,10 +84,10 @@ function mockTemplate(templateRoute, tmpl) {
   Simply to make tests look more readable.
 
   ```js
-function goTo(url) {
-  $location.url(url);
-  $rootScope.$digest();
-}
+  function goTo(url) {
+    $location.url(url);
+    $rootScope.$digest();
+  }
   ```
 
 * `goFrom(url).toState(state, [params])`
@@ -98,13 +98,13 @@ function goTo(url) {
   `$scope.$digest()`.
 
   ```js
-function goFrom(url) {
-  return {toState: function (state, params) {
-    $location.replace().url(url); //Don't actually trigger a reload
-    $state.go(state, params);
-    $rootScope.$digest();
-  }};
-}
+  function goFrom(url) {
+    return {toState: function (state, params) {
+      $location.replace().url(url); //Don't actually trigger a reload
+      $state.go(state, params);
+      $rootScope.$digest();
+    }};
+  }
   ```
 
 * `resolve(value).forStateAndView(state, [view])`
@@ -115,12 +115,12 @@ function goFrom(url) {
   fully wired up version of the resolve result.
 
   ```js
-function resolve(value) {
-  return {forStateAndView: function (state, view) {
-    var viewDefinition = view ? $state.get(state).views[view] : $state.get(state);
-    return $injector.invoke(viewDefinition.resolve[value]);
-  }};
-}
+  function resolve(value) {
+    return {forStateAndView: function (state, view) {
+      var viewDefinition = view ? $state.get(state).views[view] : $state.get(state);
+      return $injector.invoke(viewDefinition.resolve[value]);
+    }};
+  }
   ```
 
 ### URL routing
@@ -321,14 +321,14 @@ one if you create a simple utility to hide the details of the event itself.
   `$stateChangeSuccess` event:
 
   ```js
-it('should visit multiple states', function(){
-  var statesVisited = [];
-  $rootScope.$on('$stateChangeSuccess', function (event, toState) {
-    statesVisited.push(toState.name);
+  it('should visit multiple states', function(){
+    var statesVisited = [];
+    $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+      statesVisited.push(toState.name);
+    });
+    goTo('/someUrl');
+    expect(statesVisited).toEqual(['state1', 'state2']);
   });
-  goTo('/someUrl');
-  expect(statesVisited).toEqual(['state1', 'state2']);
-});
   ```
 
 * Utilize `beforeEach()`. Your state configuration is usually a fairly complex tree

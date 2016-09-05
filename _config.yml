@@ -11,11 +11,16 @@ google_analytics: "UA-55213759-1"
 animated: false
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 permalink: pretty
 paginate: 10
 sass:
   compressed: true
 
 gems:
+  - jekyll-paginate
   - jekyll-redirect-from
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

@@ -62,6 +62,11 @@ class: about
 	</li>
 </ul>
 
+### Side projects
+
+* [bookhunter.co](http://www.bookhunter.co) - price comparison for Goodreads wishlists.
+<br/> React, Redux, Node, ES6+.
+
 ### Talks
 
 {% for talk in site.posts %}

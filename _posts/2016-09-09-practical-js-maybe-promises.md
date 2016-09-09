@@ -44,3 +44,5 @@ function onExit() {
     .then(() => goToHomePage());
 }
 ```
+
+This works really well in Angular 1 too, where you can use `$q.when()` instead of the ES6 `Promise.resolve()`

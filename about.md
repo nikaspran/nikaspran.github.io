@@ -33,18 +33,18 @@ class: about
 ### Work
 
 <ul class="timeline">
-	<li data-duration="Ongoing" class="wrap ongoing">
-		<span class="start" data-end="Now">2015-10</span>
-		<h4>Wrap Media - Front End Developer</h4>
-		<p>Angular, CoffeeScript, Gulp, HTML, CSS, Less</p>
-		<p></p>
+	<li data-duration="1 year & 1 month" class="wrap ongoing">
+		<span class="start" data-end="2016-11">2015-10</span>
+		<h4>Wrap Media - Senior Front End Developer</h4>
+		<p>Angular, Node, CoffeeScript, TypeScript, Gulp, Webpack, HTML, Less</p>
+		<p>Team Lead, Process Owner for the Vilnius Team</p>
 	</li>
 	<li data-duration="1 year & 9 months" class="wix">
 		<span class="start" data-end="2015-10">2014-02</span>
 		<h4>Wix - Front End Developer</h4>
-		<p>Angular, JavaScript, Gulp, Grunt, HTML, CSS, SASS</p>
+		<p>Angular, JavaScript, Gulp, Grunt, HTML, SASS</p>
 		<p>Part of the <a href="http://www.wix.com/app-market/">App Market</a>
-		team. Initiator of migration to <a href="https://github.com/wix/wix-gulpfile">Gulp</a>.
+		team; initiator of migration to <a href="https://github.com/wix/wix-gulpfile">Gulp</a>
 		</p>
 	</li>
 	<li data-duration="5 months" class="barclays">

@@ -27,6 +27,10 @@ form {
 }
 
 .about {
+  h3 {
+    margin: 0.5em 0;
+  }
+
   .post-header > :first-child,
   .post-content > :first-child {
     margin-top: 0;
@@ -123,6 +127,10 @@ form {
   }
 
   @media print {
+    section {
+      page-break-inside: avoid;
+    }
+
     .site-nav,
     .footer {
       display: none;
@@ -133,9 +141,6 @@ form {
     }
     .site-wrap:after {
       height: 0;
-    }
-    h3 {
-      margin: 0.5em 0;
     }
     a {
       color: #333333;

@@ -9,7 +9,7 @@ class: about
 
 I'm a **Senior Front-End Engineer** and a **Team Lead**.
 
-I build products, solve difficult problems and write quality code.
+I ship products, solve difficult problems and deliver quality code.
 
 ### Social
 

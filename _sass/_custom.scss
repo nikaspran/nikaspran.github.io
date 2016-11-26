@@ -8,15 +8,25 @@
   }
 }
 
-.footer {
-  .left {
-    float: left;
-    line-height: 100px;
+.footer_content {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > * + * {
+    margin-left: 10px;
   }
-  .right {
-    float: right;
-    line-height: 100px;
+}
+
+.footer_icon {
+  & + & {
+    margin-left: 5px;
   }
+}
+
+.footer_spacer {
+  flex: 1 1;
 }
 
 form {

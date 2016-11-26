@@ -1,23 +1,25 @@
 <footer class="footer">
   <div class="wrap">
-    <div class="measure center">
-      <div class="right mr1">
-        {% if site.github_username %}
-        <a href="https://github.com/{{ site.github_username }}" target="_blank">
-          <i class="fa fa-github"></i>
-        </a>
-        {% endif %}
+    <div class="measure center footer_content">
+      <a href="{{site.url}}"><small>&copy; Nikas Praninskas {{site.time | date: "%Y"}}</small></a>
 
-        {% if site.twitter_username %}
-        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
-          <i class="fa fa-twitter"></i>
-        </a>
-        {% endif %}
-      </div>
+      <div class="footer_spacer"></div>
 
-      <small class="left ml1">
-        <a href="{{site.url}}">&copy; Nikas Praninskas {{site.time | date: "%Y"}}</href>
-      </small>
+      <a href="http://eepurl.com/bpEM-H" target="_blank">
+        <small>Subscribe to updates</small>
+      </a>
+
+      {% if site.github_username %}
+      <a class="footer_icon" href="https://github.com/{{ site.github_username }}" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      {% endif %}
+
+      {% if site.twitter_username %}
+      <a class="footer_icon" href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+      {% endif %}
     </div>
   </div>
 </footer>

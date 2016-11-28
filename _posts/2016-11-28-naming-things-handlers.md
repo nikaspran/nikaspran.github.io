@@ -97,7 +97,7 @@ image.onload = () => markAsViewable(image);
 ```
 
 We should always strive to make our code self explanatory
-(I've waged my little war on [pointless comments](({% post_url 2015-04-26-fluent-javascript %}#comments-considered-harmful))
+(I've waged my little war on [pointless comments]({% post_url 2015-04-26-fluent-javascript %}#comments-considered-harmful)
 for a while now). Naming functions after the hooks they plug into does little to explain intent.
 
 ### They prevent reusability

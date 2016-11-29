@@ -166,6 +166,13 @@ function initAndDisplaySettingsMenu() {
 }
 ```
 
+What if we need to do more in this method? Say we need to also log a view.
+Will the new name be `initAndDisplaySettingsMenuAndReportView()`?
+This doesn't seem like the right approach. Instead, we should think about whether this
+method is at the right level of abstraction. Perhaps it should then be called
+something more generic, like `loadComponent()`. It is OK to have generic names.
+They just need to describe the correct thing - what the method does, not how it's called.
+
 ## Caveat: external interfaces
 
 There is one place where naming functions for how they get called is completely
@@ -201,3 +208,16 @@ still naming our actual business logic appropriately
 an exercise in silent anger even if everything was labelled perfectly. Meanwhile,
 the best we can do is make our code as explicit as possible -
 at least if we explain ourselves, they might not throw away the madhouse keys.
+
+### Update: common counter arguments
+
+* **Causation _is_ the most important part of a handler so it _should_ be named for when it's called.**
+
+  This ignores the fact that all handlers still have to be bound to actual events somewhere.
+  You don't actually lose this association but you do lose the ability to explain
+  and annotate your code, with code.
+
+  As _@hnrysmth_ [pointed out](https://twitter.com/hnrysmth/status/803323867687243776),
+  `handler` naming is kind of like [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation)
+  for methods. In both cases, it is a solution better achieved through tooling
+  rather than code.

@@ -150,7 +150,17 @@ form {
     }
   }
 
+  @media screen {
+    .print-only {
+      display: none;
+    }
+  }
+
   @media print {
+    .web-only {
+      display: none;
+    }
+
     section {
       page-break-inside: avoid;
     }

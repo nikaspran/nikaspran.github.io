@@ -1,8 +1,8 @@
 ---
 layout:     talk
-title:      "Talk: Move over, Gatsby - React Static in Practice"
+title:      "Talk: React Static"
 date:       2018-09-25
-summary:		"React Static is an extremely simple and flexible static site generator"
+summary:		"Move over, Gatsby - React Static in Practice"
 location:		September 2018 React London Meetup
 categories: react
 tags:       [react, javascript, react-static, gatsby, talk]

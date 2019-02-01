@@ -1,7 +1,7 @@
 ---
 layout:     talk
 title:      "Talk: Static Site Generators"
-date:       2018-10-16
+date:       2018-11-16
 summary:		"Static Site Generators with JavaScript"
 location:		JS Poland 2018
 categories: react

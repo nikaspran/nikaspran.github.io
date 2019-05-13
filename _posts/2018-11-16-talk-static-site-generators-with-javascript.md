@@ -9,6 +9,11 @@ tags:       [react, javascript, react-static, talk, static-site-generator]
 comments:   true
 minutes:    15
 ---
+### Video
+
+Given at [JS Poland 2018](https://js-poland.pl/2018/)
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/jSuQYRrm8fc?ecver=2" frameborder="0" allowfullscreen></iframe>
 
 ### Slides (live)
 

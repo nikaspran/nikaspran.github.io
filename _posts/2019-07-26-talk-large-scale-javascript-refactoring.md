@@ -8,9 +8,9 @@ location:   No Trolls Allowed 2019
 categories: javascript
 tags:       [talk, javascript, eslint, refactoring]
 comments:   true
-minutes:    25
+minutes:    15
 ---
-### Video
+### Background
 
 Given at [No Trolls Allowed 2019](https://2019.notrollsallowed.com/)
 

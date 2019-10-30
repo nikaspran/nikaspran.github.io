@@ -3,7 +3,7 @@ layout:     talk
 permalink:  /talk-js-refactoring/
 title:      "Talk: Large Scale JavaScript Refactoring"
 date:       2019-07-27
-summary:    "Using familiar tools like eslint to refactor large JS codebases"
+summary:    "Large Scale JavaScript Refactoring"
 location:   No Trolls Allowed 2019
 categories: javascript
 tags:       [talk, javascript, eslint, refactoring]

@@ -1,0 +1,17 @@
+---
+layout: page
+title:
+permalink: /speaking/
+class: speaking
+---
+
+<section>
+	<h3>Talks</h3>
+	<ul>
+		{% for talk in site.posts %}
+			{% if talk.layout == "talk" %}
+				<li><a href="{{ talk.url }}" target="_blank">{{ talk.summary }}</a>, given at {{ talk.location }}</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</section>

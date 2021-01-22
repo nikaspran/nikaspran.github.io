@@ -65,8 +65,8 @@ form {
       content: '▲';
       position: absolute;
       left: -7px;
-      top: -7px;
-      color: #57c4c6;
+      top: -11px;
+      color: black;
     }
 
     li {
@@ -106,6 +106,13 @@ form {
     }
 
     $height-per-month: 15px;
+    .undisclosed {
+      &:hover::before {
+        color: black;
+      }
+      border-left-color: black;
+      min-height: 10 * $height-per-month;
+    }
     .hostmaker {
       &:hover::before {
         color: #57c4c6;

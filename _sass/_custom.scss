@@ -1,3 +1,23 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+}
+
 .icon {
   display: inline-block;
   width: 24px;
@@ -111,7 +131,7 @@ form {
         color: black;
       }
       border-left-color: black;
-      min-height: 10 * $height-per-month;
+      min-height: 36 * $height-per-month;
     }
     .hostmaker {
       &:hover::before {

@@ -281,30 +281,35 @@ Token counts are calculated using:
 
 ## Results
 
-| Format | Dataset  | Characters | GPT  |
-| ------ | -------- | ---------- | ---- |
-| XML    | DOM-like | 2081       | 887  |
-| JSON   | DOM-like | 1780       | 745  |
-| YAML   | DOM-like | 1576       | 616  |
-| TOML   | DOM-like | 1642       | 593  |
-| CSV*   | DOM-like | 1682       | 598  |
-| XML    | flat     | 2238       | 931  |
-| JSON   | flat     | 1760       | 757  |
-| YAML   | flat     | 1222       | 341  |
-| TOML   | flat     | 1457       | 493  |
-| CSV    | flat     | 658        | 181  |
-| XML    | servlets | 5019       | 2286 |
-| JSON   | servlets | 3718       | 1820 |
-| YAML   | servlets | 2964       | 1213 |
-| TOML   | servlets | 2968       | 1086 |
-| CSV*   | servlets | 2900       | 950  |
+| Format        | Dataset  | Characters | GPT  |
+| ------------- | -------- | ---------- | ---- |
+| XML           | DOM-like | 2081       | 887  |
+| JSON          | DOM-like | 1780       | 745  |
+| YAML          | DOM-like | 1576       | 616  |
+| TOML          | DOM-like | 1642       | 593  |
+| CSV           | DOM-like | 1682       | 598  |
+| JSON minified | DOM-like | 1514       | 491  |
+| XML           | flat     | 2238       | 931  |
+| JSON          | flat     | 1760       | 757  |
+| YAML          | flat     | 1222       | 341  |
+| TOML          | flat     | 1457       | 493  |
+| CSV           | flat     | 658        | 181  |
+| JSON minified | flat     | 1279       | 317  |
+| XML           | servlets | 5019       | 2286 |
+| JSON          | servlets | 3718       | 1820 |
+| YAML          | servlets | 2964       | 1213 |
+| TOML          | servlets | 2968       | 1086 |
+| CSV           | servlets | 2900       | 950  |
+| JSON minified | servlets | 2710       | 835  |
 
 <div style="font-size: .5em; margin-top: 2em;">
   * Potentially lossy and difficult to generate
 </div>
 
 <div style="display: flex; justify-content: center; margin-top: 2em;">
-  <iframe class="google-chart" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&amp;format=interactive"></iframe>
+  <!-- <iframe class="google-chart" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&amp;format=interactive"></iframe> -->
+
+  <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&amp;format=image" width="100%" height="auto">
 </div>
 
 ## Conclusion

@@ -317,6 +317,7 @@ Token counts are calculated using:
 Depending on your dataset and what you're trying to generate, it might be a great idea to try an alternative data serialization format.
 
 In particular, these formats seem to be worth experimenting with:
+- **Minified JSON**. While regular JSON is quite expensive due to all the included whitespace tokens, minified JSON has an advantage over whitespace-based data formats like YAML due to not wasting tokens on simply spaces or tabs. However, it must be noted that it might be more difficult to force a model to respond in minified JSON, so whether minifying has a significant effect or not depends on which of the two is heavy - the prompt or the LLM output.
 - **YAML** or **TOML**. For nested and recursive datasets, YAML and TOML seem to be somewhere between 25 and 50 percent more efficient than the equivalent data in JSON, and in general more efficient accross the board. I would probably pick this as a good starting point as these formats are highly available in most programming languages and seem to have a good efficiency token-wise.
 - **CSV**. For highly uniform flat data (i.e. flat lists of things), data formatted in CSV can be up to 5 times as efficient as the same data formatted as JSON. However, it can also be *very inefficient and lossy* for deeply nested or recursive data. In particular, for this kind of nested data the accuracy of LLM generation would probably be a significant issue.
 

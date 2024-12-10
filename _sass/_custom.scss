@@ -24,7 +24,7 @@ table {
   height: 24px;
 
   path {
-    fill: #777;
+    fill: black;
   }
 }
 
@@ -40,8 +40,12 @@ table {
 }
 
 .footer_icon {
+  svg {
+    display: block;
+  }
+
   & + & {
-    margin-left: 5px;
+    margin-left: 8px;
   }
 }
 
@@ -69,6 +73,10 @@ form {
   .social {
     list-style: none;
     padding: 0;
+    > li {
+      display: flex;
+      align-items: center;
+    }
     h4 {
       display: inline;
     }

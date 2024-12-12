@@ -187,13 +187,13 @@ form {
 
   @media screen {
     .print-only {
-      display: none;
+      display: none !important;
     }
   }
 
   @media print {
     .web-only {
-      display: none;
+      display: none !important;
     }
 
     section {

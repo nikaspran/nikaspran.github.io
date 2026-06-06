@@ -51,15 +51,6 @@ Static assets live in `public/`. RSS is generated into `public/feed.xml` during 
 
 ## Deployment
 
-GitHub Pages must be configured as **Deploy from a branch → `master` → `/ (root)`**.
+Push to `master`. `.github/workflows/pages.yml` deploys `out/` to GitHub Pages via Actions. The live site is served from `https://nikaspran.github.io`.
 
-Push to `master`. `.github/workflows/pages.yml` builds the site, exports it to the branch root (including `.nojekyll` and `CNAME`), and commits the result. GitHub Pages serves those files directly without running Jekyll.
-
-Manual publish:
-
-```sh
-npm run export:root
-git add -A
-git commit -m "Deploy static site"
-git push
-```
+Custom domain routing is handled in DNS (see below), not in GitHub Pages settings.

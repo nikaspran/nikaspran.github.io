@@ -23,6 +23,10 @@ function copyRecursive(from, to) {
 }
 
 for (const entry of fs.readdirSync(outDir)) {
+  if (entry === 'CNAME') {
+    continue;
+  }
+
   const target = path.join(root, entry);
   fs.rmSync(target, { recursive: true, force: true });
   copyRecursive(path.join(outDir, entry), target);

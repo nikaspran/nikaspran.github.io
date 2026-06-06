@@ -51,11 +51,11 @@ Static assets live in `public/`. RSS is generated into `public/feed.xml` during 
 
 ## Deployment
 
-Push to `master`. `.github/workflows/pages.yml` builds the site and deploys `out/` to GitHub Pages.
+GitHub Pages must be configured as **Deploy from a branch → `master` → `/ (root)`**.
 
-The custom domain is configured via `public/CNAME` (included in the build artifact). Do not commit a root-level `CNAME` file; it can route the custom domain to stale branch content instead of the Actions deployment.
+Push to `master`. `.github/workflows/pages.yml` builds the site, exports it to the branch root (including `.nojekyll` and `CNAME`), and commits the result. GitHub Pages serves those files directly without running Jekyll.
 
-For manual branch-root publishing (legacy fallback only):
+Manual publish:
 
 ```sh
 npm run export:root

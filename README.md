@@ -28,6 +28,14 @@ npm run build
 
 The production site is written to `out/`.
 
+If GitHub Pages is configured as "Deploy from branch", publish the static export into the repository root before committing:
+
+```sh
+npm run export:root
+```
+
+This writes `index.html`, `.nojekyll`, `CNAME`, `_next/`, and route folders at the branch root so GitHub Pages serves the static Next.js output directly.
+
 ## Checks
 
 ```sh
@@ -43,4 +51,6 @@ Static assets live in `public/`. RSS is generated into `public/feed.xml` during 
 
 ## Deployment
 
-GitHub Pages deployment is configured in `.github/workflows/pages.yml`. The workflow builds the static export and deploys `out/`.
+Preferred: configure GitHub Pages to use "GitHub Actions". `.github/workflows/pages.yml` builds and deploys `out/`.
+
+Fallback: if Pages is still configured as "Deploy from branch", run `npm run export:root` and commit the generated root files.

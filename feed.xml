@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nikas Praninskas</title>
+    <description>A blog about beautiful code, web development and technology</description>
+    <link>https://nikas.praninskas.com/</link>
+    <atom:link href="https://nikas.praninskas.com/feed.xml" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Efficient Data Formats for GPT</title>
+        <description>
+**TL;DR:** Try YAML/TOML or CSV instead of JSON with GPT models. Read the [Conclusion](#conclusion) for a bit more detail.
+
+## Methodology
+
+Large Language Models (LLMs) like GPT use *tokens* to process and generate text. Tokens are essentially common sequences of text.
+
+Some data formats intrinsically take up more tokens and are more expensive to use with LLM models like ChatGPT.
+For example, at [$0.02+ per 1000 tokens](https://openai.com/pricing) for OpenAI GPT models, each additional token has a very direct cost associated. Current LLMs are also constrained by their available memory, which is usually measured in tokens. Thus, having a more efficient data serialization format is cheaper and allows us to use memory more efficiently.
+
+This post looks at a few popular data formats and compares their cost in tokens.
+
+All comparisons use the same data in different formats. The data used is as follows, taken from [json.org](https://json.org/example.html) and generated using ChatGPT:
+
+`servlets`:
+
+```json
+{
+  &quot;web-app&quot;: {
+    &quot;servlet&quot;: [
+      {
+        &quot;servlet-name&quot;: &quot;cofaxCDS&quot;,
+        &quot;servlet-class&quot;: &quot;org.cofax.cds.CDSServlet&quot;,
+        &quot;init-param&quot;: {
+          &quot;configGlossary:installationAt&quot;: &quot;Philadelphia, PA&quot;,
+          &quot;configGlossary:adminEmail&quot;: &quot;ksm@pobox.com&quot;,
+          &quot;configGlossary:poweredBy&quot;: &quot;Cofax&quot;,
+          &quot;configGlossary:poweredByIcon&quot;: &quot;/images/cofax.gif&quot;,
+          &quot;configGlossary:staticPath&quot;: &quot;/content/static&quot;,
+          &quot;templateProcessorClass&quot;: &quot;org.cofax.WysiwygTemplate&quot;,
+          &quot;templateLoaderClass&quot;: &quot;org.cofax.FilesTemplateLoader&quot;,
+          &quot;templatePath&quot;: &quot;templates&quot;,
+          &quot;templateOverridePath&quot;: &quot;&quot;,
+          &quot;defaultListTemplate&quot;: &quot;listTemplate.htm&quot;,
+          &quot;defaultFileTemplate&quot;: &quot;articleTemplate.htm&quot;,
+          &quot;useJSP&quot;: false,
+          &quot;jspListTemplate&quot;: &quot;listTemplate.jsp&quot;,
+          &quot;jspFileTemplate&quot;: &quot;articleTemplate.jsp&quot;,
+          &quot;cachePackageTagsTrack&quot;: 200,
+          &quot;cachePackageTagsStore&quot;: 200,
+          &quot;cachePackageTagsRefresh&quot;: 60,
+          &quot;cacheTemplatesTrack&quot;: 100,
+          &quot;cacheTemplatesStore&quot;: 50,
+          &quot;cacheTemplatesRefresh&quot;: 15,
+          &quot;cachePagesTrack&quot;: 200,
+          &quot;cachePagesStore&quot;: 100,
+          &quot;cachePagesRefresh&quot;: 10,
+          &quot;cachePagesDirtyRead&quot;: 10,
+          &quot;searchEngineListTemplate&quot;: &quot;forSearchEnginesList.htm&quot;,
+          &quot;searchEngineFileTemplate&quot;: &quot;forSearchEngines.htm&quot;,
+          &quot;searchEngineRobotsDb&quot;: &quot;WEB-INF/robots.db&quot;,
+          &quot;useDataStore&quot;: true,
+          &quot;dataStoreClass&quot;: &quot;org.cofax.SqlDataStore&quot;,
+          &quot;redirectionClass&quot;: &quot;org.cofax.SqlRedirection&quot;,
+          &quot;dataStoreName&quot;: &quot;cofax&quot;,
+          &quot;dataStoreDriver&quot;: &quot;com.microsoft.jdbc.sqlserver.SQLServerDriver&quot;,
+          &quot;dataStoreUrl&quot;: &quot;jdbc:microsoft:sqlserver://LOCALHOST:1433;DatabaseName=goon&quot;,
+          &quot;dataStoreUser&quot;: &quot;sa&quot;,
+          &quot;dataStorePassword&quot;: &quot;dataStoreTestQuery&quot;,
+          &quot;dataStoreTestQuery&quot;: &quot;SET NOCOUNT ON;select test=&apos;test&apos;;&quot;,
+          &quot;dataStoreLogFile&quot;: &quot;/usr/local/tomcat/logs/datastore.log&quot;,
+          &quot;dataStoreInitConns&quot;: 10,
+          &quot;dataStoreMaxConns&quot;: 100,
+          &quot;dataStoreConnUsageLimit&quot;: 100,
+          &quot;dataStoreLogLevel&quot;: &quot;debug&quot;,
+          &quot;maxUrlLength&quot;: 500
+        }
+      },
+      {
+        &quot;servlet-name&quot;: &quot;cofaxEmail&quot;,
+        &quot;servlet-class&quot;: &quot;org.cofax.cds.EmailServlet&quot;,
+        &quot;init-param&quot;: {
+          &quot;mailHost&quot;: &quot;mail1&quot;,
+          &quot;mailHostOverride&quot;: &quot;mail2&quot;
+        }
+      },
+      {
+        &quot;servlet-name&quot;: &quot;cofaxAdmin&quot;,
+        &quot;servlet-class&quot;: &quot;org.cofax.cds.AdminServlet&quot;
+      },
+      {
+        &quot;servlet-name&quot;: &quot;fileServlet&quot;,
+        &quot;servlet-class&quot;: &quot;org.cofax.cds.FileServlet&quot;
+      },
+      {
+        &quot;servlet-name&quot;: &quot;cofaxTools&quot;,
+        &quot;servlet-class&quot;: &quot;org.cofax.cms.CofaxToolsServlet&quot;,
+        &quot;init-param&quot;: {
+          &quot;templatePath&quot;: &quot;toolstemplates/&quot;,
+          &quot;log&quot;: 1,
+          &quot;logLocation&quot;: &quot;/usr/local/tomcat/logs/CofaxTools.log&quot;,
+          &quot;logMaxSize&quot;: &quot;&quot;,
+          &quot;dataLog&quot;: 1,
+          &quot;dataLogLocation&quot;: &quot;/usr/local/tomcat/logs/dataLog.log&quot;,
+          &quot;dataLogMaxSize&quot;: &quot;&quot;,
+          &quot;removePageCache&quot;: &quot;/content/admin/remove?cache=pages&amp;id=&quot;,
+          &quot;removeTemplateCache&quot;: &quot;/content/admin/remove?cache=templates&amp;id=&quot;,
+          &quot;fileTransferFolder&quot;: &quot;/usr/local/tomcat/webapps/content/fileTransferFolder&quot;,
+          &quot;lookInContext&quot;: 1,
+          &quot;adminGroupID&quot;: 4,
+          &quot;betaServer&quot;: true
+        }
+      }
+    ],
+    &quot;servlet-mapping&quot;: {
+      &quot;cofaxCDS&quot;: &quot;/&quot;,
+      &quot;cofaxEmail&quot;: &quot;/cofaxutil/aemail/*&quot;,
+      &quot;cofaxAdmin&quot;: &quot;/admin/*&quot;,
+      &quot;fileServlet&quot;: &quot;/static/*&quot;,
+      &quot;cofaxTools&quot;: &quot;/tools/*&quot;
+    },
+    &quot;taglib&quot;: {
+      &quot;taglib-uri&quot;: &quot;cofax.tld&quot;,
+      &quot;taglib-location&quot;: &quot;/WEB-INF/tlds/cofax.tld&quot;
+    }
+  }
+}
+```
+
+`flat`:
+
+```json
+[
+  {
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;occupation&quot;: &quot;Software Developer&quot;,
+    &quot;age&quot;: 30
+  },
+  {
+    &quot;name&quot;: &quot;Jane Smith&quot;,
+    &quot;occupation&quot;: &quot;Teacher&quot;,
+    &quot;age&quot;: 40
+  },
+  {
+    &quot;name&quot;: &quot;Michael Johnson&quot;,
+    &quot;occupation&quot;: &quot;Accountant&quot;,
+    &quot;age&quot;: 45
+  },
+  {
+    &quot;name&quot;: &quot;Samantha Lee&quot;,
+    &quot;occupation&quot;: &quot;Graphic Designer&quot;,
+    &quot;age&quot;: 28
+  },
+  {
+    &quot;name&quot;: &quot;Robert Williams&quot;,
+    &quot;occupation&quot;: &quot;Marketing Manager&quot;,
+    &quot;age&quot;: 50
+  },
+  {
+    &quot;name&quot;: &quot;Emily Davis&quot;,
+    &quot;occupation&quot;: &quot;Journalist&quot;,
+    &quot;age&quot;: 35
+  },
+  {
+    &quot;name&quot;: &quot;William Brown&quot;,
+    &quot;occupation&quot;: &quot;Engineer&quot;,
+    &quot;age&quot;: 42
+  },
+  {
+    &quot;name&quot;: &quot;Amanda Wilson&quot;,
+    &quot;occupation&quot;: &quot;Sales Manager&quot;,
+    &quot;age&quot;: 37
+  },
+  {
+    &quot;name&quot;: &quot;Daniel Martin&quot;,
+    &quot;occupation&quot;: &quot;Doctor&quot;,
+    &quot;age&quot;: 55
+  },
+  {
+    &quot;name&quot;: &quot;Megan Anderson&quot;,
+    &quot;occupation&quot;: &quot;Web Developer&quot;,
+    &quot;age&quot;: 29
+  },
+  {
+    &quot;name&quot;: &quot;Christopher Garcia&quot;,
+    &quot;occupation&quot;: &quot;Architect&quot;,
+    &quot;age&quot;: 48
+  },
+  {
+    &quot;name&quot;: &quot;Stephanie Rodriguez&quot;,
+    &quot;occupation&quot;: &quot;Human Resources Manager&quot;,
+    &quot;age&quot;: 39
+  },
+  {
+    &quot;name&quot;: &quot;David Hernandez&quot;,
+    &quot;occupation&quot;: &quot;Real Estate Agent&quot;,
+    &quot;age&quot;: 44
+  },
+  {
+    &quot;name&quot;: &quot;Ashley Perez&quot;,
+    &quot;occupation&quot;: &quot;Graphic Designer&quot;,
+    &quot;age&quot;: 27
+  },
+  {
+    &quot;name&quot;: &quot;Erica Turner&quot;,
+    &quot;occupation&quot;: &quot;Financial Analyst&quot;,
+    &quot;age&quot;: 33
+  },
+  {
+    &quot;name&quot;: &quot;James Cooper&quot;,
+    &quot;occupation&quot;: &quot;Project Manager&quot;,
+    &quot;age&quot;: 41
+  },
+  {
+    &quot;name&quot;: &quot;Michelle Taylor&quot;,
+    &quot;occupation&quot;: &quot;Public Relations Specialist&quot;,
+    &quot;age&quot;: 36
+  },
+  {
+    &quot;name&quot;: &quot;Steven Parker&quot;,
+    &quot;occupation&quot;: &quot;Lawyer&quot;,
+    &quot;age&quot;: 52
+  },
+  {
+    &quot;name&quot;: &quot;Lauren Hall&quot;,
+    &quot;occupation&quot;: &quot;Product Manager&quot;,
+    &quot;age&quot;: 31
+  },
+  {
+    &quot;name&quot;: &quot;Brandon Wright&quot;,
+    &quot;occupation&quot;: &quot;IT Manager&quot;,
+    &quot;age&quot;: 47
+  }
+]
+```
+
+`DOM-like`:
+
+```json
+{
+  &quot;title&quot;: &quot;My Website&quot;,
+  &quot;header&quot;: {
+    &quot;logo&quot;: &quot;logo.png&quot;,
+    &quot;navigation&quot;: [
+      { &quot;text&quot;: &quot;Home&quot;, &quot;link&quot;: &quot;index.html&quot; },
+      { &quot;text&quot;: &quot;About&quot;, &quot;link&quot;: &quot;about.html&quot; },
+      { &quot;text&quot;: &quot;Contact&quot;, &quot;link&quot;: &quot;contact.html&quot; }
+    ]
+  },
+  &quot;main&quot;: {
+    &quot;sections&quot;: [
+      {
+        &quot;title&quot;: &quot;Welcome to my website!&quot;,
+        &quot;content&quot;: &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod est, eu fringilla sapien facilisis id. Proin bibendum vestibulum tortor vel aliquam. Integer ultrices justo vitae nisl dapibus sagittis. Sed vitae velit justo.&quot;
+      },
+      {
+        &quot;title&quot;: &quot;About me&quot;,
+        &quot;content&quot;: &quot;Curabitur vel ullamcorper nibh. In eget nisl vel ante pulvinar aliquet. Suspendisse vel pharetra purus, eu tincidunt libero. Duis ac sagittis dolor. Nulla facilisi. Nam at ex vitae tellus suscipit congue id id libero. Aliquam lobortis lorem non sapien maximus, vitae bibendum ipsum vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&quot;
+      },
+      {
+        &quot;title&quot;: &quot;Contact me&quot;,
+        &quot;content&quot;: &quot;Curabitur vel ullamcorper nibh. In eget nisl vel ante pulvinar aliquet. Suspendisse vel pharetra purus, eu tincidunt libero. Duis ac sagittis dolor. Nulla facilisi. Nam at ex vitae tellus suscipit congue id id libero. Aliquam lobortis lorem non sapien maximus, vitae bibendum ipsum vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&quot;
+      }
+    ]
+  },
+  &quot;footer&quot;: {
+    &quot;copyright&quot;: {
+      &quot;text&quot;: &quot;© 2023 My Website&quot;,
+      &quot;link&quot;: &quot;index.html&quot;
+    },
+    &quot;social&quot;: [
+      { &quot;icon&quot;: &quot;facebook.png&quot;, &quot;link&quot;: &quot;#&quot; },
+      { &quot;icon&quot;: &quot;twitter.png&quot;, &quot;link&quot;: &quot;#&quot; },
+      { &quot;icon&quot;: &quot;instagram.png&quot;, &quot;link&quot;: &quot;#&quot; }
+    ]
+  }
+}
+```
+
+Token counts are calculated using:
+- GPT: [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+
+## Results
+
+| Format        | Dataset  | Characters | GPT  |
+| ------------- | -------- | ---------- | ---- |
+| XML           | DOM-like | 2081       | 887  |
+| JSON          | DOM-like | 1780       | 745  |
+| YAML          | DOM-like | 1576       | 616  |
+| TOML          | DOM-like | 1642       | 593  |
+| CSV           | DOM-like | 1682       | 598  |
+| JSON minified | DOM-like | 1514       | 491  |
+| XML           | flat     | 2238       | 931  |
+| JSON          | flat     | 1760       | 757  |
+| YAML          | flat     | 1222       | 341  |
+| TOML          | flat     | 1457       | 493  |
+| CSV           | flat     | 658        | 181  |
+| JSON minified | flat     | 1279       | 317  |
+| XML           | servlets | 5019       | 2286 |
+| JSON          | servlets | 3718       | 1820 |
+| YAML          | servlets | 2964       | 1213 |
+| TOML          | servlets | 2968       | 1086 |
+| CSV           | servlets | 2900       | 950  |
+| JSON minified | servlets | 2710       | 835  |
+
+&lt;div style=&quot;font-size: .5em; margin-top: 2em;&quot;&gt;
+  * Potentially lossy and difficult to generate
+&lt;/div&gt;
+
+&lt;div style=&quot;display: flex; justify-content: center; margin-top: 2em;&quot;&gt;
+  &lt;!-- &lt;iframe class=&quot;google-chart&quot; width=&quot;600&quot; height=&quot;371&quot; seamless frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&amp;amp;format=interactive&quot;&gt;&lt;/iframe&gt; --&gt;
+
+  &lt;img src=&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&amp;amp;format=image&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;
+&lt;/div&gt;
+
+## Conclusion
+
+Depending on your dataset and what you&apos;re trying to generate, it might be a great idea to try an alternative data serialization format.
+
+In particular, these formats seem to be worth experimenting with:
+- **Minified JSON**. While regular JSON is quite expensive due to all the included whitespace tokens, minified JSON has an advantage over whitespace-based data formats like YAML due to not wasting tokens on simply spaces or tabs. However, it must be noted that it might be more difficult to force a model to respond in minified JSON, so whether minifying has a significant effect or not depends on which of the two is heavy - the prompt or the LLM output.
+- **YAML** or **TOML**. For nested and recursive datasets, YAML and TOML seem to be somewhere between 25 and 50 percent more efficient than the equivalent data in JSON, and in general more efficient accross the board. I would probably pick this as a good starting point as these formats are highly available in most programming languages and seem to have a good efficiency token-wise.
+- **CSV**. For highly uniform flat data (i.e. flat lists of things), data formatted in CSV can be up to 5 times as efficient as the same data formatted as JSON. However, it can also be *very inefficient and lossy* for deeply nested or recursive data. In particular, for this kind of nested data the accuracy of LLM generation would probably be a significant issue.
+
+Finally, given how much of a difference data serialization format seems to have in regards to the token count, further research should be conducted in this area. I&apos;d wager it won&apos;t be long until we see a new LLM-focused data serialization format, perhaps one that is highly efficient token-wise.
+
+It might also be interesting to compare different data formats by how they impact LLM accuracy &amp; generative capabilities, but that is left as an exercise to the reader.
+</description>
+        <pubDate>Wed, 05 Apr 2023 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/ai/2023/04/05/efficient-gpt-data-formats/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/ai/2023/04/05/efficient-gpt-data-formats/</guid>
+      </item>
+      <item>
+        <title>Quickie: get host of SuperTest instance</title>
+        <description>
+Have you ever needed to get the port and hostname of a [SuperTest](https://www.npmjs.com/package/supertest) instance? For example, this can be useful if you&apos;re trying to also use `nock.disableNetConnect()` in your tests to prevent external requests.
+
+Normally, when creating SuperTest by just passing it the express app, it uses an ephemeral port that you do not know in advance.
+This means that if you call something like `nock.disableNetConnect()` and use SuperTest, it will throw an error that&apos;s something like this:
+
+```
+NetConnectNotAllowedError: Nock: Not allow net connect for &quot;127.0.0.1:35037/your_path&quot;
+```
+
+As a workaround, you _can_ create the http server yourself and pass it to SuperTest, but I&apos;ve recently found a decent way to get the full host (hostname and port) from a SuperTest instance without doing that.
+
+In short, you can do a fake &quot;request&quot; which then allows you to retrieve the actual host.
+
+```js
+const request = superTest(app); // your express app
+const superTestHostname = request.get(&apos;&apos;).url; // http://127.0.0.1:35037
+```
+
+Here&apos;s how it could look when used with nock:
+
+```js
+const nock = require(&apos;nock&apos;);
+const url = require(&apos;url&apos;);
+const express = require(&apos;express&apos;);
+const superTest = require(&apos;supertest&apos;);
+
+const app = express();
+// ... your app
+
+const request = superTest(app);
+
+function disableOutsideConnections() {
+  const superTestHostname = request.get(&apos;&apos;).url;
+  const { host: superTestHost } = url.parse(superTestHostname);
+  nock.disableNetConnect();
+  nock.enableNetConnect(superTestHost);
+}
+
+beforeAll(disableOutsideConnections);
+```
+
+Here&apos;s a working example on [RunKit](https://runkit.com/nikaspran/5dfb4886cbf8160019faf9c3) so you can play around.
+</description>
+        <pubDate>Thu, 19 Dec 2019 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/javascript/2019/12/19/quickie-get-port-supertest/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/javascript/2019/12/19/quickie-get-port-supertest/</guid>
+      </item>
+      <item>
+        <title>Talk: Large Scale JavaScript Refactoring</title>
+        <description>### Background
+
+Given at [No Trolls Allowed 2019](https://2019.notrollsallowed.com/)
+
+### Slides (live)
+
+[Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vQTCvl1PplhiBDc4lF_dNy0S09QjwJBWMwa47xIaZ7YdSi1W4kZ3WxyPLSAenWsnUdbCYwsoMmufIvU/pub?start=false&amp;loop=false&amp;delayms=3000), `Space` for next slide.
+
+&lt;iframe src=&quot;https://docs.google.com/presentation/d/e/2PACX-1vQTCvl1PplhiBDc4lF_dNy0S09QjwJBWMwa47xIaZ7YdSi1W4kZ3WxyPLSAenWsnUdbCYwsoMmufIvU/embed?start=false&amp;loop=false&amp;delayms=3000&quot; frameborder=&quot;0&quot; width=&quot;100%&quot; height=&quot;461px&quot; allowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Sat, 27 Jul 2019 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/talk-js-refactoring/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/talk-js-refactoring/</guid>
+      </item>
+      <item>
+        <title>Talk: Static Site Generators</title>
+        <description>### Video
+
+Given at [JS Poland 2018](https://js-poland.pl/2018/)
+
+&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/jSuQYRrm8fc?ecver=2&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+### Slides (live)
+
+[Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vQbtXe9o4gpFsDv2nu_7zOEsQ_4aTnfkaO-xX_Ez4oiPfnrkO8XYO-Pandr1-twqlEzbTodUf5XbMri/pub?start=false&amp;loop=false&amp;delayms=3000), `Space` for next slide.
+
+&lt;iframe src=&quot;https://docs.google.com/presentation/d/e/2PACX-1vQbtXe9o4gpFsDv2nu_7zOEsQ_4aTnfkaO-xX_Ez4oiPfnrkO8XYO-Pandr1-twqlEzbTodUf5XbMri/embed?start=false&amp;loop=false&amp;delayms=3000&quot; frameborder=&quot;0&quot; width=&quot;100%&quot; height=&quot;461px&quot; allowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+### Slides (offline)
+
+&lt;script async class=&quot;speakerdeck-embed&quot; data-id=&quot;06aa07be6199419097ef6ce4f03ac6e0&quot; data-ratio=&quot;1.77777777777778&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+</description>
+        <pubDate>Fri, 16 Nov 2018 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/react/2018/11/16/talk-static-site-generators-with-javascript/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/react/2018/11/16/talk-static-site-generators-with-javascript/</guid>
+      </item>
+      <item>
+        <title>Talk: React Static</title>
+        <description>### Video
+
+Given at [September React London Meetup, 2018](https://meetup.react.london/)
+
+&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/vYTwLOaBZ1c?ecver=2&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+### Slides (live)
+
+[Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vR75P7iNfGFil4CjnPo0D6niulqmxzAwjEqIC-ZofP83YYjDdu5LRErK1WjSLZE4bkekjBPpoGNnU2m/pub?start=false&amp;loop=false&amp;delayms=3000), `Space` for next slide.
+
+&lt;iframe src=&quot;https://docs.google.com/presentation/d/e/2PACX-1vR75P7iNfGFil4CjnPo0D6niulqmxzAwjEqIC-ZofP83YYjDdu5LRErK1WjSLZE4bkekjBPpoGNnU2m/embed?start=false&amp;loop=false&amp;delayms=3000&quot; frameborder=&quot;0&quot; width=&quot;100%&quot; height=&quot;461px&quot; allowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+### Slides (offline)
+
+&lt;script async class=&quot;speakerdeck-embed&quot; data-id=&quot;848ff9b7dd5542ec96513cf45f27af7e&quot; data-ratio=&quot;1.77777777777778&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+</description>
+        <pubDate>Tue, 25 Sep 2018 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/react/2018/09/25/talk-react-static/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/react/2018/09/25/talk-react-static/</guid>
+      </item>
+      <item>
+        <title>Naming Things: Avoid &quot;Handlers&quot;</title>
+        <description>
+As tradition dictates, this post _should_ start with the obligatory quote
+about the two hard things in computer science. Instead, to keep things DRY,
+let&apos;s just assume we&apos;ve all already thought of it anyway.
+
+Have you ever come across a 127 line function that does a bunch of computation,
+calls multiple endpoints, uses all sorts of asynchronous flows and such and
+is called `handleClick`? Of course, since all programming is a deadly dance with irony,
+the only place it appears to be used has nothing to do with clicking anything.
+So you sigh heavily, roll up your sleeves and set aside the next few hours to
+figure out what it actually does.
+
+Every large code base contains these poor ill-named functions.
+With names such as `onClick`, `onLoad`, `onInit`, `handleImageLoad`, `handleChanged`, `handleEnter`,
+it&apos;s always like a little murder mystery you get to solve.
+Except the victim is your sanity and the suspect left the company 2 years ago.
+
+The laziest method names are those that spell out _how they&apos;re used_. They often
+don&apos;t convey any significant information and could mostly be left out entirely.
+Instead, methods should named for _what they do_. You should never have
+to read a function body unless you care about how it does what it does.
+
+## So what&apos;s wrong with `handleSomething`s?
+
+### They hide the high-level structure
+
+I believe some actual code makes the point much better than I ever could.
+Can you tell what this class does?
+
+```javascript
+class Mystery {
+  handleDragEnter() {
+    // ...  
+  }
+  handleDragLeave() {
+    // ...
+  }
+}
+```
+
+If you can, I regret to tell you that the [One Million Dollar Paranormal Challenge](https://en.wikipedia.org/wiki/One_Million_Dollar_Paranormal_Challenge)
+has unfortunately been cancelled and you might have missed out on some serious cash.
+How about this one?
+
+```javascript
+class Mystery {
+  showDropZone() {
+    // ...  
+  }
+  hideDropZone() {
+    // ...
+  }
+}
+```
+
+Much easier, right? It is of course an excerpt from a component for uploading files.
+The method names themselves hint at the broader structure and meaning of the code
+surrounding them.
+
+Naming methods for what they do is crucial for quickly scanning modules and components
+and for actually finding what you care about.
+
+### They tell you nothing
+
+Say we&apos;re making an awesome slideshow gallery with preloading
+(since we&apos;re rolling our own implementation instead of using _ReactReduxImageSlider.js_,
+this scenario is somehow set in 2007).
+We need to know when our images have finished preloading so that we can mark them as viewable.
+So we go ahead and prototype out the following:
+
+```javascript
+function onLoad(image) {
+  viewableImages.push(image);
+}
+
+image.onload = () =&gt; onLoad(image);
+```
+
+So here we are. We&apos;ve just started implementing something and we&apos;ve already wasted
+12 characters. _Of course_ whatever we assign to `onload` will happen when the image loads.
+We don&apos;t need to repeat ourselves. Instead, we should let the reader know what happens when the image loads:
+
+```javascript
+function markAsViewable(image) {
+  viewableImages.push(image);
+}
+
+image.onload = () =&gt; markAsViewable(image);
+```
+
+We should always strive to make our code self explanatory
+(I&apos;ve waged my little war on [pointless comments]({% post_url 2015-04-26-fluent-javascript %}#comments-considered-harmful)
+for a while now). Naming functions after the hooks they plug into does little to explain intent.
+
+### They prevent reusability
+
+Say you&apos;ve gone ahead and named some method `handleClick`. It&apos;s very simple -
+all it does is toggle a dropdown. All is good, until one night three months later
+you suddenly wake up drenched in cold sweat, single thought in mind - _people have keyboards_!
+You rush to your workstation, swat away the empty coffee cups and pizza boxes,
+open up your favorite editor and start implementing... `handleEnter`?
+
+_This would never happen_, you say, _I would rename it_, you add. You&apos;re right,
+but since it&apos;s been three months already you have to figure out if it&apos;s being used somewhere
+already, and _oh it&apos;s used 17 times in the template_ and your editor does not support
+cross-file refactoring and now you have to spend 10 minutes just renaming things,
+like some sort of savage.
+
+Instead, had you named the method `toggleDropdown`, you would have saved yourself
+the effort and made it self-explanatory. Then all you would have had to deal with was
+setting up the event handler and looking up the keycodes and _oh look it&apos;s 6am already_.
+
+### They&apos;re often flat out wrong
+
+When confronted with the previous scenario, some people choose a path other than refactoring.
+In an almost humanitarian effort to empower blocks of code,
+they push their poor methods to do _more_.
+
+```javascript
+toggler.onkeydown = handleClick; // sheer madness
+```
+
+Things change, sometimes drastically (the _true_ hard problem in computer science).
+Business logic changes, methods get moved around, blocks of code vanish, functions get reused.
+If you name a function for how it gets called, you&apos;re anchoring your code to a moment in time.
+Any time you change your flow or requirements, you&apos;ll likely have to rename the method as well.
+
+Outdated function names are worse than outdated comments -
+the latter at least don&apos;t make it to stack traces.
+
+### They kill single responsibility
+
+Methods with generic names tend to become a gathering bin for all sorts of random
+code which is rarely related. It&apos;s much easier to justify
+putting an HTTP request into a function called `onLoad` rather than one called
+`showMenu`.
+
+```javascript
+function onLoad() {
+  menu.show();
+  fetch(&apos;settings&apos;, ...); // A-OK!
+}
+
+function showMenu() {
+  menu.show();
+  fetch(&apos;settings&apos;, ...); // uhh, is this really the right place for this?
+}
+```
+
+The better alternative is to describe the flow in
+higher-level steps, such as `showMenu()` and `loadSettings()`. These can then be
+grouped under even higher-level functions such as `initAndDisplaySettingsMenu()`, i.e.:
+
+```javascript
+function initAndDisplaySettingsMenu() {
+  loadSettings();
+  showMenu();
+}
+```
+
+What if we need to do more in this method? Say we need to also log a view.
+Will the new name be `initAndDisplaySettingsMenuAndReportView()`?
+This doesn&apos;t seem like the right approach. Instead, we should think about whether this
+method is at the right level of abstraction. Perhaps it should then be called
+something more generic, like `loadComponent()`. It is OK to have generic names.
+They just need to describe the correct thing - what the method does, not how it&apos;s called.
+
+## Caveat: external interfaces
+
+There is one place where naming functions for how they get called is completely
+acceptable and even recommended - external interface hooks.
+
+For example, take Angular components. There&apos;s a way to one-way bind to an outside
+expression, exposing an interface:
+
+```javascript
+angular.component(&apos;myButton&apos;, {
+  bindings: { onClick: &apos;&amp;&apos; },
+  controller() {},
+  template: `
+    &lt;button type=&quot;button&quot; ng-click=&quot;$ctrl.onClick()&quot;&gt;My Button&lt;/button&gt;
+  `
+});
+```
+
+```html
+&lt;my-button on-click=&quot;$ctrl.finishEditing()&quot;&gt;&lt;/my-button&gt;
+```
+
+External interfaces are there to be consumable, so being as clear and obvious as
+possible about how they behave is the best strategy here.
+
+Notice that even though we use `onClick()` for the outside interface name, we&apos;re
+still naming our actual business logic appropriately
+(`finishEditing`, rather than `handleClick` or something like that).
+
+## A rose by any other name...
+
+... misleads and wastes the reader&apos;s time! Understanding code would likely still be
+an exercise in silent anger even if everything was labelled perfectly. Meanwhile,
+the best we can do is make our code as explicit as possible -
+at least if we explain ourselves, they might not throw away the madhouse keys.
+
+### Update: common counter arguments
+
+* **Causation _is_ the most important part of a handler so it _should_ be named for when it&apos;s called.**
+
+  This ignores the fact that all handlers still have to be bound to actual events somewhere.
+  You don&apos;t actually lose this association but you do lose the ability to explain
+  and annotate your code, with code.
+
+  As _@hnrysmth_ [pointed out](https://twitter.com/hnrysmth/status/803323867687243776),
+  `handler` naming is kind of like [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation)
+  for methods. In both cases, it is a solution better achieved through tooling
+  rather than code.
+</description>
+        <pubDate>Mon, 28 Nov 2016 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/javascript/2016/11/28/naming-things-handlers/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/javascript/2016/11/28/naming-things-handlers/</guid>
+      </item>
+      <item>
+        <title>Practical JS: Maybe Promises</title>
+        <description>
+Sometimes, you want to optionally wait for a promise before performing some synchronous code.
+The most obvious solution unfortunately leads to some duplication:
+
+```js
+function onExit() {
+  if (hasChanges) {
+    showConfirmationModal()
+      .then(() =&gt; goToHomePage());
+  } else {
+    goToHomePage();
+  }
+}
+```
+
+The more complicated a flow gets, the more unwieldy it becomes.
+A good way of dealing with this is by introducing what I sometimes call a *maybePromise*:
+
+```js
+function onExit() {
+  const maybeConfirmExit = hasChanges ? showConfirmationModal() : Promise.resolve();
+  maybeConfirmExit.then(() =&gt; goToHomePage());
+}
+```
+
+This can really simplify more complicated flows which include more than one optional gate:
+
+```js
+function onExit() {
+  const maybeConfirmExit = hasChanges ? showConfirmationModal() : Promise.resolve();
+  const maybeNotifySessionEnded = () =&gt; otherSessions.length ? notifySessionEnded() : Promise.resolve();
+
+  maybeConfirmExit
+    .then(maybeNotifySessionEnded) // !important, maybeNotifySessionEnded is an arrow function
+    .then(() =&gt; goToHomePage());
+}
+```
+
+This works really well in Angular 1 too, where you can use `$q.when()` instead of the ES6 `Promise.resolve()`
+</description>
+        <pubDate>Fri, 09 Sep 2016 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/javascript/2016/09/09/practical-js-maybe-promises/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/javascript/2016/09/09/practical-js-maybe-promises/</guid>
+      </item>
+      <item>
+        <title>Practical JS: Multiple Providers</title>
+        <description>
+Sometimes, you have multiple providers for the same functionality. For example,
+while working on my [book recommendation website](http://www.bookhunter.co/),
+I had to fetch listings for books from various different vendors (Amazon, BookDepository and such).
+
+The initial solution was to just use imports and then put them into an array:
+
+```js
+import amazonUs from &apos;./vendors/amazonUs&apos;;
+import amazonUk from &apos;./vendors/amazonUk&apos;;
+import amazonCa from &apos;./vendors/amazonCa&apos;;
+import amazonDe from &apos;./vendors/amazonDe&apos;;
+import amazonEs from &apos;./vendors/amazonEs&apos;;
+import amazonFr from &apos;./vendors/amazonFr&apos;;
+import abeBooks from &apos;./vendors/abeBooks&apos;;
+import bookDepository from &apos;./vendors/bookDepository&apos;;
+
+const vendors = [
+  amazonUs,
+  amazonUk,
+  amazonCa,
+  amazonDe,
+  amazonEs,
+  amazonFr,
+  abeBooks,
+  bookDepository
+];
+
+export default function fetchListings(book) {
+  return Promise.all(vendors.map(vendor =&gt; vendor.fetchListing(book)));
+}
+```
+
+As you can imagine, this gets pretty cumbersome when you have to support more
+more than a few vendors (Amazon alone has 12 locales which need to be handled separately).
+In order to add a new vendor, you have to create a new file, then import that file here and
+also add it to the array.
+
+However, if you&apos;re using Node or a CommonJS-enabled environment, you can do something like this:
+
+```js
+import fs from &apos;fs&apos;;
+
+const vendors = fs.readdirSync(`${__dirname}/vendors`)
+  .map(vendor =&gt; require(`${__dirname}/vendors/${vendor}`).default);
+
+export default function fetchListings(book) {
+  return Promise.all(vendors.map(vendor =&gt; vendor.fetchListing(book)));
+}
+```
+
+To add a new vendor, all you have to do is create the file. It&apos;s not much, but it
+helps streamline the process.
+
+As a final note, if you&apos;re doing this often, you could write a small helper function:
+
+```js
+import fs from &apos;fs&apos;;
+
+export function requireAllFrom(dirName) {
+  return fs.readdirSync(dirName).map(file =&gt; require(`${dirName}/${file}`));
+}
+```
+
+Elsewhere:
+
+```js
+const vendors = requireAllFrom(`${__dirname}/vendors`)
+  .map(v =&gt; v.default);
+```
+
+I&apos;ve also used this for:
+
+* Creating unit tests that use fixtures and expected file output
+* Adding custom plugins to Babel
+* Creating multiple loggers for analytics (i.e. console and Mixpanel)
+</description>
+        <pubDate>Fri, 26 Aug 2016 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/javascript/2016/08/26/practical-js-multiple-providers/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/javascript/2016/08/26/practical-js-multiple-providers/</guid>
+      </item>
+      <item>
+        <title>Quickie: get directives for an Angular element</title>
+        <description>
+Unfortunately, this is not entirely trivial. I&apos;d love to give you a snippet you can paste into console,
+but so far this is the best I&apos;ve come up with. Anyhow, here&apos;s a way to inspect the directives of an element:
+
+Set a breakpoint in the `compileNodes()` function in the Angular source somewhere
+after the `collectDirectives()` method call:
+
+&lt;img src=&quot;/images/quickie-get-directives-for-element/breakpoint.png&quot;&gt;
+
+Then paste the following into your console:
+
+```js
+el = document.querySelector(&apos;&lt;your element selector&gt;&apos;); //get your element somehow
+angular.element(document.body).injector().get(&apos;$compile&apos;)(angular.element(el));
+```
+
+You&apos;ll be able to see the directives in result of the `collectDirectives()` method call,
+which the non-minified case will be `directives`:
+
+```js
+console.log(directives);
+&gt; [
+    {
+      &quot;restrict&quot;: &quot;A&quot;,
+      &quot;controllerAs&quot;: &quot;ctrl&quot;,
+      &quot;template&quot;: &quot;{{ctrl.prop}}&quot;,
+      &quot;priority&quot;: 0,
+      &quot;index&quot;: 0,
+      &quot;name&quot;: &quot;attrDirective&quot;,
+      &quot;require&quot;: &quot;attrDirective&quot;,
+      &quot;$$bindings&quot;: {
+        &quot;isolateScope&quot;: null,
+        &quot;bindToController&quot;: null
+      },
+      &quot;$$moduleName&quot;: &quot;App&quot;
+    }
+  ]
+```
+
+You can also get a list of all the directives registered on the current `$injector`,
+which is usually going to be all the directives in your app:
+
+```js
+console.log(hasDirectives);
+&gt; [/* all directives registered on the $injector */]
+```
+
+Obviously this is going to be a little trickier if you&apos;re working with minified code
+but the same principles apply and you can work out the equivalent variables to query.
+
+Let me know if you have a better method!
+</description>
+        <pubDate>Fri, 20 Nov 2015 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/angular/2015/11/20/quickie-get-directives-for-element/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/angular/2015/11/20/quickie-get-directives-for-element/</guid>
+      </item>
+      <item>
+        <title>Quickie: $httpBackend flush() $digest in progress</title>
+        <description>
+[TL;DR](#solution)
+
+When `flush()` and `verifyNoOutstandingExpectation()` `$httpBackend` methods are used together,
+Angular mistakenly tries to do a double $digest if there&apos;s an error in one of your expectations,
+which results in messy errors like this:
+
+```
+x service should work
+  Error: Unexpected request: GET http://www.example.com
+  No more request expected
+      at $httpBackend (https://code.angularjs.org/1.3.20/angular-mocks.js:1263:9)
+      at sendReq (https://code.angularjs.org/1.3.20/angular.js:9694:9)
+      at serverRequest (https://code.angularjs.org/1.3.20/angular.js:9406:16)
+      at processQueue (https://code.angularjs.org/1.3.20/angular.js:13318:27)
+      at https://code.angularjs.org/1.3.20/angular.js:13334:27
+      at Scope.$eval (https://code.angularjs.org/1.3.20/angular.js:14570:28)
+      at Scope.$digest (https://code.angularjs.org/1.3.20/angular.js:14386:31)
+      at Function.$httpBackend.flush (https://code.angularjs.org/1.3.20/angular-mocks.js:1562:38)
+      at Context.&lt;anonymous&gt; (http://fiddle.jshell.net/_display/:77:22)
+      at Test.Runnable.run (http://cdnjs.cloudflare.com/ajax/libs/mocha/1.12.1/mocha.js:4150:32)
+
+x &quot;after each&quot; hook:
+  Error: [$rootScope:inprog] $digest already in progress
+  http://errors.angularjs.org/1.3.20/$rootScope/inprog?p0=%24digest
+      at https://code.angularjs.org/1.3.20/angular.js:63:12
+      at beginPhase (https://code.angularjs.org/1.3.20/angular.js:14924:15)
+      at Scope.$digest (https://code.angularjs.org/1.3.20/angular.js:14366:9)
+      at Function.$httpBackend.verifyNoOutstandingExpectation (https://code.angularjs.org/1.3.20/angular-mocks.js:1594:38)
+      at Context.&lt;anonymous&gt; (http://fiddle.jshell.net/_display/:69:22)
+      at Hook.Runnable.run (http://cdnjs.cloudflare.com/ajax/libs/mocha/1.12.1/mocha.js:4150:32)
+      at next (http://cdnjs.cloudflare.com/ajax/libs/mocha/1.12.1/mocha.js:4410:10)
+      at http://cdnjs.cloudflare.com/ajax/libs/mocha/1.12.1/mocha.js:4422:5
+      at timeslice (http://cdnjs.cloudflare.com/ajax/libs/mocha/1.12.1/mocha.js:5404:27)
+```
+
+The second stacktrace is less than helpful and mostly entirely misleading.
+This usually happens if you have a unit testing (either mocha or jasmine) setup similar to this:
+
+```js
+angular.module(&apos;myApp&apos;).service(&apos;service&apos;, function ($http) {
+  this.doCall = function(){
+    $http.get(&apos;http://www.example.com2&apos;); // &lt;-- BUG HERE
+  };
+});
+```
+
+```js
+describe(&apos;service&apos;, function(){
+  var service;
+
+  beforeEach(/*... setup and inject everything ...*/);
+
+  afterEach(function(){
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
+  it(&apos;should work&apos;, function () {
+    $httpBackend.whenGET(&apos;http://www.example.com&apos;).respond(200);
+    service.doCall();
+    $httpBackend.flush();
+  });
+});
+```
+
+This setup here is in fact what the [official Angular documentation](https://docs.angularjs.org/api/ngMock/service/$httpBackend)
+recommends when using `$httpBackend`, but it doesn&apos;t behave very well.
+
+This happens because both [$httpBackend.verifyNoOutstandingExpectation()](https://github.com/angular/angular.js/blob/master/src/ngMock/angular-mocks.js#L1724) and [$httpBackend.flush()](https://github.com/angular/angular.js/blob/master/src/ngMock/angular-mocks.js#L1692) both have `$rootScope.$digest()` in them. When an error happens, the `$digest`
+from the `flush()` still hasn&apos;t ended by the time the `afterEach` block hits and you get the misleading
+`Error: [$rootScope:inprog] $digest already in progress` message.
+
+Here&apos;s the `verifyNoOutstandingExpectation()` method:
+
+```js
+$httpBackend.verifyNoOutstandingExpectation = function(digest) {
+  if (digest !== false) $rootScope.$digest();
+  if (expectations.length) {
+    throw new Error(&apos;Unsatisfied requests: &apos; + expectations.join(&apos;, &apos;));
+  }
+};
+```
+
+&lt;a id=&quot;solution&quot;&gt;&lt;/a&gt;
+As we can see, there&apos;s an optional undocumented parameter called `digest`. To fix
+the issue, call the method with `false` to make it skip the unnecessary `$digest` cycle:
+
+```js
+afterEach(function(){
+  $httpBackend.verifyNoOutstandingExpectation(false); // &lt;-- no unnecessary $digest
+  $httpBackend.verifyNoOutstandingRequest();
+});
+```
+
+This results in the correct output:
+
+```
+x should work
+  Error: Unexpected request: GET http://www.example.com2
+  No more request expected
+      at $httpBackend (https://code.angularjs.org/1.3.20/angular-mocks.js:1263:9)
+      at sendReq (https://code.angularjs.org/1.3.20/angular.js:9694:9)
+      at serverRequest (https://code.angularjs.org/1.3.20/angular.js:9406:16)
+      at processQueue (https://code.angularjs.org/1.3.20/angular.js:13318:27)
+      at https://code.angularjs.org/1.3.20/angular.js:13334:27
+      at Scope.$eval (https://code.angularjs.org/1.3.20/angular.js:14570:28)
+      at Scope.$digest (https://code.angularjs.org/1.3.20/angular.js:14386:31)
+      at Function.$httpBackend.flush (https://code.angularjs.org/1.3.20/angular-mocks.js:1562:38)
+      at Context.&lt;anonymous&gt; (http://fiddle.jshell.net/_display/:72:22)
+      at Test.Runnable.run (http://cdnjs.cloudflare.com/ajax/libs/mocha/1.12.1/mocha.js:4150:32)
+```
+
+Here&apos;s  a [jsfiddle](https://jsfiddle.net/N4Up7/14/) replicating the issue so
+you can play around.
+</description>
+        <pubDate>Fri, 20 Nov 2015 00:00:00 GMT</pubDate>
+        <link>https://nikas.praninskas.com/angular/2015/11/20/quickie-httpbackend-digest-in-progress/</link>
+        <guid isPermaLink="true">https://nikas.praninskas.com/angular/2015/11/20/quickie-httpbackend-digest-in-progress/</guid>
+      </item>
+  </channel>
+</rss>

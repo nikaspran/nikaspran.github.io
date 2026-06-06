@@ -7,8 +7,9 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-rss.mjs",
     "build": "next build",
+    "export:root": "npm run build && node scripts/export-to-root.mjs",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint app components lib scripts/*.mjs *.mjs"
   },
   "dependencies": {
     "github-slugger": "^2.0.0",

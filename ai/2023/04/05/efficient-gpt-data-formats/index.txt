@@ -1,0 +1,415 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","974","static/chunks/app/page-1c659d84647361c1.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+5:I[1402,["619","static/chunks/619-ba102abea3e3d0e4.js","177","static/chunks/app/layout-84ffe44718057f31.js"],""]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/_next/static/css/544ee592cd857e18.css","style"]
+0:{"P":null,"b":"0GmGdxisFqUoIiASZN4wE","p":"","c":["","ai","2023","04","05","efficient-gpt-data-formats",""],"i":false,"f":[[["",{"children":[["slug","ai/2023/04/05/efficient-gpt-data-formats","c"],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/544ee592cd857e18.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","div",null,{"className":"site-frame","children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"shell header-inner","children":[["$","$L2",null,{"className":"site-title","href":"/","children":"Nikas Praninskas"}],["$","nav",null,{"className":"site-nav","aria-label":"Main navigation","children":[["$","$L2","/speaking/",{"href":"/speaking/","children":"Speaking"}],["$","$L2","/about/",{"href":"/about/","children":"About"}],["$","$L2","/contact/",{"href":"/contact/","children":"Contact"}]]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"shell page-content narrow not-found","children":[["$","h1",null,{"children":"404"}],["$","p",null,{"children":"Sorry, I cannot seem to find this page."}],["$","div",null,{"className":"button-row","children":[["$","$L2",null,{"href":"/","children":"Home"}],["$","$L2",null,{"href":"/contact/","children":"Contact"}]]}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],["$","footer",null,{"className":"footer","children":["$","div",null,{"className":"shell footer-inner","children":[["$","$L2",null,{"href":"/","className":"muted-link","children":["© ","Nikas Praninskas"," ",2026]}],["$","div",null,{"className":"footer-links","children":[["$","a",null,{"href":"https://github.com/nikaspran","target":"_blank","rel":"noreferrer","aria-label":"GitHub","children":["$","svg",null,{"aria-hidden":"true","className":"icon","viewBox":"0 0 24 24","children":["$","path",null,{"d":"M12 .5a12 12 0 0 0-3.8 23.39c.6.11.82-.26.82-.58v-2.1c-3.34.73-4.04-1.42-4.04-1.42-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23A11.5 11.5 0 0 1 12 5.57c1.02 0 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"}]}]}],["$","a",null,{"href":"https://bsky.app/profile/nikaspran.bsky.social","target":"_blank","rel":"noreferrer","aria-label":"Bluesky","children":["$","svg",null,{"aria-hidden":"true","className":"icon","viewBox":"0 0 24 24","children":["$","path",null,{"d":"M5.1 3.25C7.9 5.33 10.9 9.56 12 11.83c1.1-2.27 4.1-6.5 6.9-8.58 2.02-1.5 5.29-2.67 5.29 1.04 0 .74-.43 6.22-.68 7.11-.87 3.09-4.04 3.89-6.87 3.41 4.94.83 6.19 3.6 3.48 6.36-5.15 5.25-7.4-1.31-7.98-2.99-.08-.23-.12-.37-.16-.37s-.08.14-.16.37c-.58 1.68-2.83 8.24-7.98 2.99-2.71-2.76-1.46-5.53 3.48-6.36-2.83.48-6-.32-6.87-3.41C.2 10.51-.22 5.03-.22 4.29c0-3.71 3.27-2.54 5.32-1.04Z"}]}]}]]}]]}]}],[["$","$L5",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-92SFG41SK8","strategy":"afterInteractive"}],["$","$L5",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments);}\n          gtag('js', new Date());\n          gtag('config', 'G-92SFG41SK8');\n        "}]]]}]}]]}],{"children":[["slug","ai/2023/04/05/efficient-gpt-data-formats","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:T9a99,<p><strong>TL;DR:</strong> Try YAML/TOML or CSV instead of JSON with GPT models. Read the <a href="#conclusion">Conclusion</a> for a bit more detail.</p>
+<h2 id="methodology">Methodology</h2>
+<p>Large Language Models (LLMs) like GPT use <em>tokens</em> to process and generate text. Tokens are essentially common sequences of text.</p>
+<p>Some data formats intrinsically take up more tokens and are more expensive to use with LLM models like ChatGPT.
+For example, at <a href="https://openai.com/pricing">$0.02+ per 1000 tokens</a> for OpenAI GPT models, each additional token has a very direct cost associated. Current LLMs are also constrained by their available memory, which is usually measured in tokens. Thus, having a more efficient data serialization format is cheaper and allows us to use memory more efficiently.</p>
+<p>This post looks at a few popular data formats and compares their cost in tokens.</p>
+<p>All comparisons use the same data in different formats. The data used is as follows, taken from <a href="https://json.org/example.html">json.org</a> and generated using ChatGPT:</p>
+<p><code>servlets</code>:</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"web-app"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"servlet"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"servlet-name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cofaxCDS"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"servlet-class"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.cds.CDSServlet"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"init-param"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"configGlossary:installationAt"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Philadelphia, PA"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"configGlossary:adminEmail"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ksm@pobox.com"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"configGlossary:poweredBy"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Cofax"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"configGlossary:poweredByIcon"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/images/cofax.gif"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"configGlossary:staticPath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/content/static"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"templateProcessorClass"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.WysiwygTemplate"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"templateLoaderClass"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.FilesTemplateLoader"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"templatePath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"templates"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"templateOverridePath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">""</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"defaultListTemplate"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"listTemplate.htm"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"defaultFileTemplate"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"articleTemplate.htm"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"useJSP"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"jspListTemplate"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"listTemplate.jsp"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"jspFileTemplate"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"articleTemplate.jsp"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePackageTagsTrack"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">200</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePackageTagsStore"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">200</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePackageTagsRefresh"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">60</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cacheTemplatesTrack"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cacheTemplatesStore"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">50</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cacheTemplatesRefresh"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePagesTrack"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">200</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePagesStore"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePagesRefresh"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"cachePagesDirtyRead"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"searchEngineListTemplate"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"forSearchEnginesList.htm"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"searchEngineFileTemplate"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"forSearchEngines.htm"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"searchEngineRobotsDb"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"WEB-INF/robots.db"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"useDataStore"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreClass"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.SqlDataStore"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"redirectionClass"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.SqlRedirection"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreName"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cofax"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreDriver"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"com.microsoft.jdbc.sqlserver.SQLServerDriver"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreUrl"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"jdbc:microsoft:sqlserver://LOCALHOST:1433;DatabaseName=goon"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreUser"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"sa"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStorePassword"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"dataStoreTestQuery"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreTestQuery"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"SET NOCOUNT ON;select test='test';"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreLogFile"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/usr/local/tomcat/logs/datastore.log"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreInitConns"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreMaxConns"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreConnUsageLimit"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataStoreLogLevel"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"debug"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"maxUrlLength"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">500</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"servlet-name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cofaxEmail"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"servlet-class"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.cds.EmailServlet"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"init-param"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"mailHost"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"mail1"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"mailHostOverride"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"mail2"</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"servlet-name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cofaxAdmin"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"servlet-class"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.cds.AdminServlet"</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"servlet-name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"fileServlet"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"servlet-class"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.cds.FileServlet"</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"servlet-name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cofaxTools"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"servlet-class"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"org.cofax.cms.CofaxToolsServlet"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"init-param"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">"templatePath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"toolstemplates/"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"log"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"logLocation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/usr/local/tomcat/logs/CofaxTools.log"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"logMaxSize"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">""</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataLog"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataLogLocation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/usr/local/tomcat/logs/dataLog.log"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"dataLogMaxSize"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">""</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"removePageCache"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/content/admin/remove?cache=pages&#x26;id="</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"removeTemplateCache"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/content/admin/remove?cache=templates&#x26;id="</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"fileTransferFolder"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/usr/local/tomcat/webapps/content/fileTransferFolder"</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"lookInContext"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"adminGroupID"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">"betaServer"</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"servlet-mapping"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"cofaxCDS"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"cofaxEmail"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/cofaxutil/aemail/*"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"cofaxAdmin"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/admin/*"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"fileServlet"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/static/*"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"cofaxTools"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/tools/*"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"taglib"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"taglib-uri"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cofax.tld"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"taglib-location"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/WEB-INF/tlds/cofax.tld"</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><code>flat</code>:</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"John Doe"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Software Developer"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">30</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Jane Smith"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Teacher"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">40</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Michael Johnson"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Accountant"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">45</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Samantha Lee"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Graphic Designer"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">28</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Robert Williams"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Marketing Manager"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">50</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Emily Davis"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Journalist"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">35</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"William Brown"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Engineer"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">42</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Amanda Wilson"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Sales Manager"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">37</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Daniel Martin"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Doctor"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">55</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Megan Anderson"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Web Developer"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">29</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Christopher Garcia"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Architect"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">48</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Stephanie Rodriguez"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Human Resources Manager"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">39</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"David Hernandez"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Real Estate Agent"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">44</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Ashley Perez"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Graphic Designer"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">27</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Erica Turner"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Financial Analyst"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">33</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"James Cooper"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Project Manager"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">41</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Michelle Taylor"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Public Relations Specialist"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">36</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Steven Parker"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Lawyer"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">52</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Lauren Hall"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Product Manager"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">31</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Brandon Wright"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"occupation"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"IT Manager"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"age"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">47</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p><code>DOM-like</code>:</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"title"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"My Website"</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"header"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"logo"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"logo.png"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"navigation"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">"text"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Home"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"index.html"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">"text"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"About"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"about.html"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">"text"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Contact"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"contact.html"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"main"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"sections"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"title"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Welcome to my website!"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"content"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod est, eu fringilla sapien facilisis id. Proin bibendum vestibulum tortor vel aliquam. Integer ultrices justo vitae nisl dapibus sagittis. Sed vitae velit justo."</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"title"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"About me"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"content"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Curabitur vel ullamcorper nibh. In eget nisl vel ante pulvinar aliquet. Suspendisse vel pharetra purus, eu tincidunt libero. Duis ac sagittis dolor. Nulla facilisi. Nam at ex vitae tellus suscipit congue id id libero. Aliquam lobortis lorem non sapien maximus, vitae bibendum ipsum vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">"title"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Contact me"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"content"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Curabitur vel ullamcorper nibh. In eget nisl vel ante pulvinar aliquet. Suspendisse vel pharetra purus, eu tincidunt libero. Duis ac sagittis dolor. Nulla facilisi. Nam at ex vitae tellus suscipit congue id id libero. Aliquam lobortis lorem non sapien maximus, vitae bibendum ipsum vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">"footer"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">"copyright"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"text"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"© 2023 My Website"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"index.html"</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"social"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">"icon"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"facebook.png"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">"icon"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"twitter.png"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">"icon"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"instagram.png"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"link"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"#"</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Token counts are calculated using:</p>
+<ul>
+<li>GPT: <a href="https://platform.openai.com/tokenizer">https://platform.openai.com/tokenizer</a></li>
+</ul>
+<h2 id="results">Results</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Format</th><th>Dataset</th><th>Characters</th><th>GPT</th></tr></thead><tbody><tr><td>XML</td><td>DOM-like</td><td>2081</td><td>887</td></tr><tr><td>JSON</td><td>DOM-like</td><td>1780</td><td>745</td></tr><tr><td>YAML</td><td>DOM-like</td><td>1576</td><td>616</td></tr><tr><td>TOML</td><td>DOM-like</td><td>1642</td><td>593</td></tr><tr><td>CSV</td><td>DOM-like</td><td>1682</td><td>598</td></tr><tr><td>JSON minified</td><td>DOM-like</td><td>1514</td><td>491</td></tr><tr><td>XML</td><td>flat</td><td>2238</td><td>931</td></tr><tr><td>JSON</td><td>flat</td><td>1760</td><td>757</td></tr><tr><td>YAML</td><td>flat</td><td>1222</td><td>341</td></tr><tr><td>TOML</td><td>flat</td><td>1457</td><td>493</td></tr><tr><td>CSV</td><td>flat</td><td>658</td><td>181</td></tr><tr><td>JSON minified</td><td>flat</td><td>1279</td><td>317</td></tr><tr><td>XML</td><td>servlets</td><td>5019</td><td>2286</td></tr><tr><td>JSON</td><td>servlets</td><td>3718</td><td>1820</td></tr><tr><td>YAML</td><td>servlets</td><td>2964</td><td>1213</td></tr><tr><td>TOML</td><td>servlets</td><td>2968</td><td>1086</td></tr><tr><td>CSV</td><td>servlets</td><td>2900</td><td>950</td></tr><tr><td>JSON minified</td><td>servlets</td><td>2710</td><td>835</td></tr></tbody></table>
+<div style="font-size: .5em; margin-top: 2em;">
+  * Potentially lossy and difficult to generate
+</div>
+<div style="display: flex; justify-content: center; margin-top: 2em;">
+  <!-- <iframe class="google-chart" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&amp;format=interactive"></iframe> -->
+  <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSw5EL3u7SGKM0Csj13nJhYMbQ1tw93rMK3mcKasxRyG5AliYaZybU-23miCYIMoPSDMpXnoKV-81SX/pubchart?oid=60533594&#x26;format=image" width="100%" height="auto">
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>Depending on your dataset and what you're trying to generate, it might be a great idea to try an alternative data serialization format.</p>
+<p>In particular, these formats seem to be worth experimenting with:</p>
+<ul>
+<li><strong>Minified JSON</strong>. While regular JSON is quite expensive due to all the included whitespace tokens, minified JSON has an advantage over whitespace-based data formats like YAML due to not wasting tokens on simply spaces or tabs. However, it must be noted that it might be more difficult to force a model to respond in minified JSON, so whether minifying has a significant effect or not depends on which of the two is heavy - the prompt or the LLM output.</li>
+<li><strong>YAML</strong> or <strong>TOML</strong>. For nested and recursive datasets, YAML and TOML seem to be somewhere between 25 and 50 percent more efficient than the equivalent data in JSON, and in general more efficient accross the board. I would probably pick this as a good starting point as these formats are highly available in most programming languages and seem to have a good efficiency token-wise.</li>
+<li><strong>CSV</strong>. For highly uniform flat data (i.e. flat lists of things), data formatted in CSV can be up to 5 times as efficient as the same data formatted as JSON. However, it can also be <em>very inefficient and lossy</em> for deeply nested or recursive data. In particular, for this kind of nested data the accuracy of LLM generation would probably be a significant issue.</li>
+</ul>
+<p>Finally, given how much of a difference data serialization format seems to have in regards to the token count, further research should be conducted in this area. I'd wager it won't be long until we see a new LLM-focused data serialization format, perhaps one that is highly efficient token-wise.</p>
+<p>It might also be interesting to compare different data formats by how they impact LLM accuracy &#x26; generative capabilities, but that is left as an exercise to the reader.</p>6:["$","main",null,{"className":"shell article-shell","children":[["$","article",null,{"className":"article","children":[["$","header",null,{"className":"article-header","children":[["$","h1",null,{"children":"Efficient Data Formats for GPT"}],["$","div",null,{"className":"article-meta","children":[["$","time",null,{"dateTime":"2023-04-05T00:00:00.000Z","children":"Apr 5, 2023"}],null,["$","span",null,{"children":"4 minute read"}],null]}],["$","ul",null,{"className":"tag-list article-tags","aria-label":"Tags","children":[["$","li","chatgpt",{"children":"chatgpt"}],["$","li","openai",{"children":"openai"}],["$","li","gpt",{"children":"gpt"}],["$","li","ai",{"children":"ai"}],["$","li","llm",{"children":"llm"}]]}]]}],["$","div",null,{"className":"article-body","dangerouslySetInnerHTML":{"__html":"$11"}}],"$L12"]}],"$L13"]}]
+12:["$","section",null,{"className":"comments","aria-label":"Comments","children":[["$","h2",null,{"children":"Comments"}],["$","div",null,{"id":"disqus_thread"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n                var disqus_shortname = 'nikaspran';\n                (function() {\n                  var dsq = document.createElement('script');\n                  dsq.type = 'text/javascript';\n                  dsq.async = true;\n                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';\n                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n                })();\n              "}}],["$","noscript",null,{"children":"Please enable JavaScript to view the comments powered by Disqus."}]]}]
+13:["$","aside",null,{"className":"toc","aria-label":"On this page","children":[["$","p",null,{"children":"On this page"}],["$","ol",null,{"children":[["$","li","methodology",{"className":"depth-2","children":["$","a",null,{"href":"#methodology","children":"Methodology"}]}],["$","li","results",{"className":"depth-2","children":["$","a",null,{"href":"#results","children":"Results"}]}],["$","li","conclusion",{"className":"depth-2","children":["$","a",null,{"href":"#conclusion","children":"Conclusion"}]}]]}]]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+14:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"Efficient Data Formats for GPT - Nikas Praninskas"}],["$","meta","1",{"name":"description","content":"Some data formats take up more tokens and are more expensive to use with LLM models like ChatGPT"}],["$","link","2",{"rel":"author","href":"https://nikas.praninskas.com"}],["$","meta","3",{"name":"author","content":"Nikas Praninskas"}],["$","meta","4",{"name":"keywords","content":"chatgpt,openai,gpt,ai,llm"}],["$","link","5",{"rel":"canonical","href":"https://nikas.praninskas.com/ai/2023/04/05/efficient-gpt-data-formats/"}],["$","link","6",{"rel":"icon","href":"/favicon-16x16.png","sizes":"16x16","type":"image/png"}],["$","link","7",{"rel":"icon","href":"/favicon-32x32.png","sizes":"32x32","type":"image/png"}],["$","link","8",{"rel":"icon","href":"/favicon-96x96.png","sizes":"96x96","type":"image/png"}],["$","link","9",{"rel":"icon","href":"/favicon-160x160.png","sizes":"160x160","type":"image/png"}],["$","link","10",{"rel":"icon","href":"/favicon-192x192.png","sizes":"192x192","type":"image/png"}],["$","$L14","11",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

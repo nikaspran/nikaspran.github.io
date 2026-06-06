@@ -51,6 +51,13 @@ Static assets live in `public/`. RSS is generated into `public/feed.xml` during 
 
 ## Deployment
 
-Preferred: configure GitHub Pages to use "GitHub Actions". `.github/workflows/pages.yml` builds and deploys `out/`.
+Push to `master`. `.github/workflows/pages.yml` builds the site, exports it to the branch root, and publishes it to GitHub Pages with the custom domain.
 
-Fallback: if Pages is still configured as "Deploy from branch", run `npm run export:root` and commit the generated root files.
+GitHub Pages serves the committed static files directly (`.nojekyll` disables Jekyll). To publish manually:
+
+```sh
+npm run export:root
+git add -A
+git commit -m "Deploy static site"
+git push
+```
